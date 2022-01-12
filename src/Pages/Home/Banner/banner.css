@@ -1,5 +1,59 @@
-.banner{
-    background-image: url("https://i.ibb.co/3mf7fKF/bannerbackground.png");
-    width: 100vw;
-    height: 80vh;
+/* Extra small devices (phones, 600px and down) */
+ @media only screen and (max-width: 600px){
+    .banner{
+        background-image: url("../Banner/../../../Images/Banner/cover.jpg");
+        width: 100%;
+        height: 50vh;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+    }
+    .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+      }
+      .banner-text{
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+    }
+
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .banner{
+        background-image: url("../Banner/../../../Images/Banner/cover.jpg");
+        width: 100%;
+        height: 80vh;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        position: relative;
+    }
+    .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+  }
+  .banner-text{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
 }
