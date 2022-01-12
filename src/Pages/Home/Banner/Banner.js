@@ -5,16 +5,16 @@ import './banner.css'
 
 const Banner = () => {
     return (
-        <div className='banner'>
-       <h2>Banner</h2> 
-      
-      <form action="#">
-      <input className='rounded-pill' /> 
-      <Button className='rounded-pill' variant="danger">Search</Button>
-      </form>
-        
-      
-   
+        <div className='banner d-flex justify-content-center align-items-center'>
+            <div className="">
+            <h1>Best Food Waiting For Your Belly</h1> 
+            <div class="input-group mx-auto container">
+            <input type="text" class="form-control" placeholder="Search Food Items" aria-label="Recipient's username" aria-describedby="button-addon2"/>
+            <button class="btn btn-danger" type="button" id="button-addon2">Search</button>
+            </div>
+
+            </div>
+
       </div>
     );
 };

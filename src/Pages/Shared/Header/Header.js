@@ -6,7 +6,6 @@ const Header = () => {
     return (
     
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-        <Container>
         <Navbar.Brand as={Link} to="/">
         <img
           alt=""
@@ -33,7 +32,6 @@ const Header = () => {
           </Nav>
 
         </Navbar.Collapse>
-        </Container>
         </Navbar>
       
     );
