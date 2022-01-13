@@ -1,12 +1,17 @@
 import React from 'react';
+import About from '../About/About';
 import Banner from './Banner/Banner';
-import Gallery from './Gallery/Gallery';
+import TabsNav from './Tabs/TabsNav/TabsNav';
+
+
+
 
 const Home = () => {
     return (
         <>
         <Banner></Banner>
-        <Gallery></Gallery>
+        <TabsNav></TabsNav>
+        <About></About>
         </>
     );
 };

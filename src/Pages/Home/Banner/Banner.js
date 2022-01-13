@@ -13,8 +13,6 @@ const Banner = () => {
             <button class="btn btn-danger" type="button" id="button-addon2">Search</button>
             </div>
 
-            
-
       </div>
     );
 };
