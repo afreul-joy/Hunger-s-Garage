@@ -5,6 +5,8 @@ import {Route, Routes } from 'react-router-dom';
 import About from './Pages/About/About';
 import Home from './Pages/Home/Home';
 import Error from './Pages/Error/Error';
+import Login from './Pages/Authentication/Login/Login';
+import Register from './Pages/Authentication/Register/Register';
 
 
 function App() {
@@ -18,9 +20,13 @@ function App() {
         element={<About></About>}>
         </Route>
              
-        {/* <Route path="/login" 
+        <Route path="/login" 
         element={<Login></Login>}>        
-        </Route> */}
+        </Route>
+
+        <Route path="/register" 
+        element={<Register></Register>}>        
+        </Route>
 
 
           <Route path="/" 
