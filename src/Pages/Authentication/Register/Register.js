@@ -27,7 +27,7 @@ const Register = () => {
                 <input type="password" onBlur="" className="form-control" placeholder="Password" required />
                 <Button type="submit" variant="contained"><i className="fas fa-user-plus me-2"></i> Register</Button>
             </form>
-            <Link to='/login'>Already Registered? Sign In now!</Link>
+         <p> Already Registered? <Link to='/login'>Sign In now!</Link></p> 
         </div>
     </div>
     );
