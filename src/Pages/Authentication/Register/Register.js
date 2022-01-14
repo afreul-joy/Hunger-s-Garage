@@ -43,6 +43,9 @@ const Register = () => {
             varifyEmail()
             setUserName()
             setSuccess('Signed-Up successfully!');
+            setTimeout(() => {
+                varifyEmail();
+            }, 3000)
         })
         .catch(error=>{
             setError(error.message)
@@ -62,8 +65,8 @@ const Register = () => {
     const varifyEmail=()=>{
         sendEmailVerification(auth.currentUser)
         .then((result) => {
-            console.log(result);
             setSuccess('Verification message sent to your email!');
+            console.log(result);
         });
     }
     //---- User Additional Information-----

@@ -30,15 +30,21 @@ const useFirebase = () => {
     }
   
   //   observer whether user auth state changed or not
-    useEffect(()=>{
-      onAuthStateChanged(auth, (user) => {
-          if (user) {
-              setUser(user)
-          }
-        });
-    },[])
+  useEffect(() => {
+    const unsubscribed = onAuthStateChanged(auth, userInfo => {
+        if (userInfo && userInfo.emailVerified) {
+            setUser(userInfo);
+        }
+        else {
+            setUser({});
+        }
+        // setIsLoading(false);
+    });
+    return () => unsubscribed;
+
+}, [auth]);
   
       return{user,signInUsingGoogle,signOutUsingGoogle}
-  };
+  }
 
 export default useFirebase;
