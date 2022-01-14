@@ -3,12 +3,13 @@ import { GoogleAuthProvider,getAuth, signInWithPopup,signOut, onAuthStateChanged
 import { useEffect } from "react";
 import initializeFirebase from "../Pages/Authentication/Firebase/firebase.init";
 
-
 initializeFirebase()
 
 const useFirebase = () => {
     const [user,setUser] = useState({}) 
-  
+    const [error,setError] = useState('')
+    const [success, setSuccess] = useState('');
+    
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
   
@@ -20,7 +21,12 @@ const useFirebase = () => {
       signOut(auth)
       .then(() => {
           setUser({})
+          setSuccess('Signed-Out successfully!');
         })
+        .catch(err => {
+          setError(err.code);
+          setSuccess('');
+      })
     }
   
   //   observer whether user auth state changed or not
