@@ -53,7 +53,7 @@ const Header = () => {
                                 </div>
                                 :
                                 <div onMouseOver={handleDownArrow} className="dropdown navbar-custom">
-                                  <Button className='rounded-pill' variant="danger">  <i className="fas fa-user-circle"></i> My Account</Button>
+                                  <Button className='rounded-pill me-2' variant="outline-dark">  <i className="fas fa-user-circle"></i> My Account</Button>
                                     <i className="fas fa-chevron-down down-arrow"></i>
                                     <div className="dropdown-content">
                                         <Nav.Link as={NavLink} to="/login"><i className="fas fa-sign-in-alt"></i> Sign In</Nav.Link>

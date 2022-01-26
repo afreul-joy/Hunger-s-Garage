@@ -8,6 +8,8 @@ import Error from './Pages/Error/Error';
 import Login from './Pages/Authentication/Login/Login';
 import Register from './Pages/Authentication/Register/Register';
 import AuthProvider from './context/AuthProvider';
+import Meals from './Pages/Meals/Meals';
+import BuyNow from './Pages/Meals/BuyNow/BuyNow';
 
 
 function App() {
@@ -31,6 +33,13 @@ function App() {
         element={<Register></Register>}>        
         </Route>
 
+        <Route path="/meals" 
+        element={<Meals></Meals>}>        
+        </Route>
+
+        <Route path="/meals/buyNow/:id" 
+        element={<BuyNow></BuyNow>}>        
+        </Route>
 
           <Route path="/" 
           element={<Home></Home>}>
