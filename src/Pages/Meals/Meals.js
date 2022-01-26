@@ -20,13 +20,12 @@ const Meals = () => {
                 foods.map(food => <Col
                     key={food.name}
                 >
-                    <Card className="my-3">
+                    <Card className="mb-2">
                         <Card.Img className="w-50 mx-auto" src={food.img} alt="" />
                         <Card.Title>{food.name}</Card.Title>
                         <small>{food.details.slice(0, 40)}</small>
                         <Card.Title>{food.price}</Card.Title>
-                      
-                        <Link to={`/meals/BuyNow/${food.id}`}><Button variant="contained">Buy Now</Button></Link>
+                        <Link to={`/meals/${food._id}`} style={{textDecoration: "none"}}><Button variant="contained" color="secondary" size="medium" className="mb-2" >Buy Now</Button></Link>
                     </Card>
                       
                 </Col>)

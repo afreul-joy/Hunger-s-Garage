@@ -47,7 +47,7 @@ function App() {
         element={<AddMeals></AddMeals>}>        
         </Route>
 
-        <Route path="/meals/buyNow/:id" 
+        <Route path="/meals/:id" 
         element={<BuyNow></BuyNow>}>        
         </Route>
 
