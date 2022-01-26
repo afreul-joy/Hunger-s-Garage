@@ -10,6 +10,8 @@ import Register from './Pages/Authentication/Register/Register';
 import AuthProvider from './context/AuthProvider';
 import Meals from './Pages/Meals/Meals';
 import BuyNow from './Pages/Meals/BuyNow/BuyNow';
+import MyOrder from './Pages/MyOrder/MyOrder';
+import AddMeals from './Pages/AddMeals/AddMeals';
 
 
 function App() {
@@ -37,9 +39,18 @@ function App() {
         element={<Meals></Meals>}>        
         </Route>
 
+        <Route path="/myOrders" 
+        element={<MyOrder></MyOrder>}>        
+        </Route>
+
+        <Route path="/addMeals" 
+        element={<AddMeals></AddMeals>}>        
+        </Route>
+
         <Route path="/meals/buyNow/:id" 
         element={<BuyNow></BuyNow>}>        
         </Route>
+
 
           <Route path="/" 
           element={<Home></Home>}>

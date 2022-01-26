@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 const Meals = () => {
     const [foods, setFoods] = useState([])
     useEffect(() => {
-        fetch("/dinner.json")
+        const url = `http://localhost:5000/meals`
+        fetch(url)
             .then(res => res.json())
             .then(data => setFoods(data))
     }, [])

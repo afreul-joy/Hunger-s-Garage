@@ -4,9 +4,9 @@
     caret-color: transparent;
     margin-top: 2%;
 }
-.navbar-custom:hover, .navbar-custom a:hover{
+/* .navbar-custom:hover, .navbar-custom a:hover{
     color: #5c85df
-}
+} */
 .dropdown-content{
     display: none;
     box-shadow: rgba(0,0,0,0.1) 2px 4px 8px;

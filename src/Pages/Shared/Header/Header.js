@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button,Nav, Navbar } from 'react-bootstrap';
+import { Button,Dropdown,Nav, Navbar } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { handleDownArrow, vanishDownArrow } from './navPlain';
@@ -31,26 +31,35 @@ const Header = () => {
          <Nav.Link as={Link} to="/about">
          <Button className='rounded-pill' variant="outline-dark">About</Button>
             </Nav.Link>
-         {/* <Nav.Link as={Link} to="/login">
-         <Button className='rounded-pill' variant="danger">Login</Button>
-            </Nav.Link> */}
+
 
             {
                             (user.email || user.displayName) ?
-                                <div onMouseOver={handleDownArrow} className="dropdown navbar-custom">
-                                    {
+                            <Dropdown>
+                              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                 {
                                         user.photoURL ?
                                             <img src={user?.photoURL} className="rounded-pill border border-warning border-2" width="35px" alt={user.displayName} />
                                             :
                                             <i className="fas fa-user-circle"></i>
                                     }
-                                    <span className="ms-2">
-                                        {user.displayName} <i className="fas fa-chevron-down down-arrow"></i>
-                                    </span>
-                                    <div className="dropdown-content">
-                                        <Nav.Link onClick={signOutUsingGoogle}><i className="fas fa-sign-out-alt"></i> Sign Out</Nav.Link>
-                                    </div>
-                                </div>
+                              <span className="ms-2">{user.displayName}  </span>
+                              </Dropdown.Toggle>
+
+                              <Dropdown.Menu>
+                                <Dropdown.Item href="#/action-1"><NavLink className="mx-1" to="/myOrders">
+                                        <Button variant="outline-secondary">Myorders</Button>
+                                    </NavLink></Dropdown.Item>
+                                <Dropdown.Item href="#/action-2"><NavLink className="mx-1" to="/addMeals">
+                                        <Button variant="outline-secondary">AddMeals</Button>
+                                    </NavLink></Dropdown.Item>
+                               
+                                <Dropdown.Divider />
+                                <Dropdown.Item eventKey="4"> <button onClick={signOutUsingGoogle} type="button" className="btn btn-outline-danger mx-1 ">Logout</button></Dropdown.Item>
+                              </Dropdown.Menu>
+                             
+                            </Dropdown>
+
                                 :
                                 <div onMouseOver={handleDownArrow} className="dropdown navbar-custom">
                                   <Button className='rounded-pill me-2' variant="outline-dark">  <i className="fas fa-user-circle"></i> My Account</Button>
