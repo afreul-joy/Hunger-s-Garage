@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 const MyOrder = () => {
@@ -58,6 +59,7 @@ const MyOrder = () => {
                     <th>Customer Name</th>
                     <th>Price</th>
                     <th>Email</th>
+                    <th>Edit</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -70,8 +72,10 @@ const MyOrder = () => {
                         <td>{myOrder?.name}</td>
                         <td>{myOrder?.productPrice}</td>
                         <td>{myOrder?.email}</td>
-     <button onClick={() => handleDelete(myOrder?._id)} className="btn bg-warning m-2"> <i class="fas fa-trash fa-lg"></i> Delete</button>
-  </tr>
+                        <td><Link to="/user/:id"><button onClick={() => handleDelete(myOrder?._id)} className="btn bg-info m-2"> <i class="fas fa-user-edit"></i> Edit</button></Link></td>
+                        <td><button onClick={() => handleDelete(myOrder?._id)} className="btn bg-warning m-2"> <i class="fas fa-trash"></i>  Delete</button></td>
+     
+                    </tr>
                 </tbody>
             ))}
         </Table>
