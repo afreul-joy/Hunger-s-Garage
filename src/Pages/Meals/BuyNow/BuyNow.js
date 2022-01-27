@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { Card, Container,Form,Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BuyNow = () => {
     const [meal,setMeal] = useState({})
@@ -38,7 +40,7 @@ const BuyNow = () => {
         console.log(userData);
 
         // Send data server POST API
-        fetch('https://crudserver01.herokuapp.com/users',{
+        fetch('http://localhost:5000/purchase',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(userData)
@@ -47,11 +49,15 @@ const BuyNow = () => {
             .then(res=>res.json())
             .then(data=>{
                 if(data.insertedId)
-                alert("Add Successfully")
-                e.target.reset();
+               {toast.success("Order added successfully!", {
+                position: "top-center",
+                theme:"colored"
+                });
+               e.target.reset();}
             })
     }
 
+    
 
     return (
         <div>
@@ -75,7 +81,8 @@ const BuyNow = () => {
                             <Form.Control type="text" readOnly className="text-muted p-2  text-center" value={`Price: ${meal.price}`|| ''} /> <br />
                             <Form.Control type="text" required onChange={handleNumber} className="text-muted p-2  text-center" placeholder="Enter Your Phone Number" /> <br />
                             <Form.Control type="text" required onChange={handleAdress}  className="text-muted p-2  text-center" placeholder="Enter Your Address" /> <br />
-                            <Button type="submit" variant="contained" className="mb-2" >Confirm</Button>
+                            <Button type="submit" variant="contained" className="mb-2" >Confirm</Button>                         
+                      <ToastContainer />
                         </Form>
                     </div>
 
