@@ -36,7 +36,7 @@ const BuyNow = () => {
 
     const handleForm=e=>{
         e.preventDefault();
-        const userData = {name:user.displayName,email:user.email,productName:meal.name,productPrice:meal.price,phone:phone,address:address}
+        const userData = {name:user.displayName,email:user.email,img:meal.img,productName:meal.name,productPrice:meal.price,phone:phone,address:address}
         console.log(userData);
 
         // Send data server POST API

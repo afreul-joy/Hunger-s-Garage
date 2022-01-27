@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
+import Swal from 'sweetalert2'
 
 const MyOrder = () => {
     const [myOrders, setMyOrders] = useState([]);
@@ -10,16 +11,51 @@ const MyOrder = () => {
             .then(data => setMyOrders(data));
     }, [myOrders?._id]);
 
+    const handleDelete = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+              {
+                const url = `http://localhost:5000/myOrders/${id}`
+                fetch(url,{
+                    method: 'DELETE',
+    
+                })
+                    .then(res=>res.json())
+                    .then(data => {
+                        if(data.deletedCount >0){
+                            const remainingOrder = myOrders.filter(user=>user._id !== id)
+                            setMyOrders(remainingOrder)
+                        }
+                    });
+            }
+            }
+          })
+
+    }
 
     return (
-        <div className="container">
+        <Container >
         <h1>Manage All Orders {myOrders?.length}</h1>
-        <Table striped bordered hover>
+        <Table striped bordered hover responsive>
             <thead>
                 <tr>
                     <th>Order No</th>
-                    <th>Name</th>
+                    <th>Image</th>
                     <th>Product Name</th>
+                    <th>Customer Name</th>
                     <th>Price</th>
                     <th>Email</th>
                     <th>Action</th>
@@ -29,17 +65,17 @@ const MyOrder = () => {
                 <tbody>
                     <tr>
                         <td>{index + 1}</td>
-                        <td>{myOrder?.name}</td>
+                        <td><img src={myOrder?.img} className="img-fluid" style={{width:"60px"}} alt="" /></td>
                         <td>{myOrder?.productName}</td>
-                        <td>{myOrder?.phone}</td>
+                        <td>{myOrder?.name}</td>
                         <td>{myOrder?.productPrice}</td>
                         <td>{myOrder?.email}</td>
-                        {/* <button onClick={() => handleDelete(allOrder?._id)} className="btn bg-danger p-2">Delete</button> */}
-                    </tr>
+     <button onClick={() => handleDelete(myOrder?._id)} className="btn bg-warning m-2"> <i class="fas fa-trash fa-lg"></i> Delete</button>
+  </tr>
                 </tbody>
             ))}
         </Table>
-    </div>
+        </Container>
     );
 };
 
