@@ -57,8 +57,6 @@ const BuyNow = () => {
             })
     }
 
-    
-
     return (
         <div>
             <h2 className="text-success my-2">Please Order </h2>
