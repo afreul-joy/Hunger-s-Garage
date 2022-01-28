@@ -18,9 +18,10 @@ const Edit = () => {
     },[])
 
     //form method
-    const [name,setName] = useState({})
     const [phone,setPhone] = useState("")
     const [address,setAddress] = useState("")
+    const [name,setName] = useState("")
+    const [email,setEmail] = useState("")
     
     const handleNumber =e=>{
         const phoneNumber = e.target.value;
@@ -30,25 +31,19 @@ const Edit = () => {
         const Address = e.target.value;
         setAddress(Address)
     }
-
-    const handleName = e=>{
-        
-        const UpdatedName=e.target.value
-        const updatedUser = {name:UpdatedName,}
-        // updatedName.name=updatedName
-        // console.log(name);
-        setName(updatedUser)
+    const handleName =e=>{
+        const Name = e.target.value;
+        setName(Name)
     }
-    // const handleEmail = e=>{
-    //     const updatedName =e.target.value;
-    //     const updatedUser = {name}
-    //     updatedUser.name=updatedName
-    //     // console.log(userProfile);
-    // }
+    const handleEmail =e=>{
+        const Email = e.target.value;
+        setEmail(Email)
+    }
+
 
     const handleForm=e=>{
         e.preventDefault();
-        const userData = {name:user.displayName,email:user.email,img:meal.img,productName:meal.name,productPrice:meal.price,phone:phone,address:address}
+        const userData = {name:name,email:email,img:meal.img,productName:meal.name,phone:phone,address:address}
         console.log(userData);
 
         // Send data server POST API
@@ -69,7 +64,7 @@ const Edit = () => {
     return (
         <div>
         <h2 className="text-success my-2">Please Order </h2>
-        {/* <h2>{userProfile}</h2>     */}
+        
         <Container>
         <Row>
             <div className="col-lg-6">
@@ -82,8 +77,8 @@ const Edit = () => {
                 <h4 className="text-primary mb-3">Update Order</h4>
                 <div className="d-flex justify-content-center align-items-center">
                     <Form  onSubmit={handleForm} className="w-50">
-                        <Form.Control type="text" onChange={handleName}  className="text-muted p-2  text-center" value={`Name: ${user.displayName}`  || ''} /> <br />
-                        <Form.Control type="text"  className="text-muted p-2  text-center" value={`Email: ${user.email}` || ''} /> <br />
+                        <Form.Control type="text" required  onChange={handleName} className="text-muted p-2  text-center" defaultValue={user?.displayName} /> <br />
+                        <Form.Control type="text" required  onChange={handleEmail} className="text-muted p-2  text-center" defaultValue= {user?.email} /> <br />
                         <Form.Control type="text" required onChange={handleNumber} className="text-muted p-2  text-center" placeholder="Enter Your Phone Number" /> <br />
                         <Form.Control type="text" required onChange={handleAdress}  className="text-muted p-2  text-center" placeholder="Enter Your Address" /> <br />
                         <Button type="submit" variant="contained" className="mb-2" >Update</Button>    
