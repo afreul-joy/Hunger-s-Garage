@@ -5,7 +5,6 @@ import Swal from 'sweetalert2'
 
 const MyOrder = () => {
     const [myOrders, setMyOrders] = useState([]);
-
     useEffect(() => {
         fetch('http://localhost:5000/myOrders')
             .then(res => res.json())
@@ -72,7 +71,7 @@ const MyOrder = () => {
                         <td>{myOrder?.name}</td>
                         <td>{myOrder?.productPrice}</td>
                         <td>{myOrder?.email}</td>
-                        <td><Link to="/user/:id"><button onClick={() => handleDelete(myOrder?._id)} className="btn bg-info m-2"> <i class="fas fa-user-edit"></i> Edit</button></Link></td>
+                        <td><Link to={`/myOrders/${myOrder._id}`}><button className="btn bg-info m-2"> <i class="fas fa-user-edit"></i> Edit</button></Link></td>
                         <td><button onClick={() => handleDelete(myOrder?._id)} className="btn bg-warning m-2"> <i class="fas fa-trash"></i>  Delete</button></td>
      
                     </tr>

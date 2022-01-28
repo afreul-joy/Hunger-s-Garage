@@ -12,6 +12,7 @@ import Meals from './Pages/Meals/Meals';
 import BuyNow from './Pages/Meals/BuyNow/BuyNow';
 import MyOrder from './Pages/MyOrder/MyOrder';
 import AddMeals from './Pages/AddMeals/AddMeals';
+import Edit from './Pages/MyOrder/Edit/Edit';
 
 
 function App() {
@@ -41,6 +42,10 @@ function App() {
 
         <Route path="/myOrders" 
         element={<MyOrder></MyOrder>}>        
+        </Route>
+
+        <Route path="/myOrders/:id" 
+        element={<Edit></Edit>}>        
         </Route>
 
         <Route path="/addMeals" 
