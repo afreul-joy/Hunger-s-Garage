@@ -58,6 +58,7 @@ const MyOrder = () => {
                     <th>Customer Name</th>
                     <th>Price</th>
                     <th>Email</th>
+                    <th>Phone</th>
                     <th>Edit</th>
                     <th>Action</th>
                 </tr>
@@ -71,6 +72,7 @@ const MyOrder = () => {
                         <td>{myOrder?.name}</td>
                         <td>{myOrder?.productPrice}</td>
                         <td>{myOrder?.email}</td>
+                        <td>{myOrder?.phone}</td>
                         <td><Link to={`/myOrders/${myOrder._id}`}><button className="btn bg-info m-2"> <i class="fas fa-user-edit"></i> Edit</button></Link></td>
                         <td><button onClick={() => handleDelete(myOrder?._id)} className="btn bg-warning m-2"> <i class="fas fa-trash"></i>  Delete</button></td>
      
