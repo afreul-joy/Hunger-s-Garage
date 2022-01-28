@@ -14,7 +14,7 @@ const BuyNow = () => {
     const {user}=useAuth() 
     //showing single details
     useEffect(() => {
-        const url = `http://localhost:5000/meals/${id}`
+        const url = `https://hungers-garage.herokuapp.com/meals/${id}`
         fetch(url)
          .then(res=>res.json())
           .then(data => setMeal(data));
@@ -40,7 +40,7 @@ const BuyNow = () => {
         console.log(userData);
 
         // Send data server POST API
-        fetch('http://localhost:5000/purchase',{
+        fetch('https://hungers-garage.herokuapp.com/purchase',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(userData)

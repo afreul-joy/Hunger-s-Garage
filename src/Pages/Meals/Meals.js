@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Meals = () => {
     const [foods, setFoods] = useState([])
     useEffect(() => {
-        const url = `http://localhost:5000/meals`
+        const url = `https://hungers-garage.herokuapp.com/meals`
         fetch(url)
             .then(res => res.json())
             .then(data => setFoods(data))

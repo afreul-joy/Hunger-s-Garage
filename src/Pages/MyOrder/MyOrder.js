@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 const MyOrder = () => {
     const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/myOrders')
+        fetch('https://hungers-garage.herokuapp.com/myOrders')
             .then(res => res.json())
             .then(data => setMyOrders(data));
     }, [myOrders?._id]);
@@ -28,7 +28,7 @@ const MyOrder = () => {
                 'success'
               )
               {
-                const url = `http://localhost:5000/myOrders/${id}`
+                const url = `https://hungers-garage.herokuapp.com/myOrders/${id}`
                 fetch(url,{
                     method: 'DELETE',
     
