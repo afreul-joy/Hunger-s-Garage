@@ -3,7 +3,7 @@ import { Button,Dropdown,Nav, Navbar } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { handleDownArrow, vanishDownArrow } from './navPlain';
-import { NavLink } from 'react-router-dom';
+// import {  Link } from 'react-router-dom';
 import './Header.css'
 
 const Header = () => {
@@ -47,12 +47,12 @@ const Header = () => {
                               </Dropdown.Toggle>
 
                               <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1"><NavLink className="mx-1" to="/myOrders">
+                                <Dropdown.Item ><Link style={{textDecoration: 'none'}} className="mx-1" to="/myOrders">
                                         <Button variant="outline-secondary">Myorders</Button>
-                                    </NavLink></Dropdown.Item>
-                                <Dropdown.Item href="#/action-2"><NavLink className="mx-1" to="/addMeals">
-                                        <Button variant="outline-secondary">AddMeals</Button>
-                                    </NavLink></Dropdown.Item>
+                                    </Link></Dropdown.Item>
+                                <Dropdown.Item ><Link style={{textDecoration: 'none'}} className="mx-1" to="/addMeals">
+                                        <Button variant="outline-secondary"> AddMeals</Button>
+                                    </Link></Dropdown.Item>
                                
                                 <Dropdown.Divider />
                                 <Dropdown.Item eventKey="4"> <button onClick={signOutUsingGoogle} type="button" className="btn btn-outline-danger mx-1 ">Logout</button></Dropdown.Item>
@@ -65,8 +65,8 @@ const Header = () => {
                                   <Button className='rounded-pill me-2' variant="outline-dark">  <i className="fas fa-user-circle"></i> My Account</Button>
                                     <i className="fas fa-chevron-down down-arrow"></i>
                                     <div className="dropdown-content">
-                                        <Nav.Link as={NavLink} to="/login"><i className="fas fa-sign-in-alt"></i> Sign In</Nav.Link>
-                                        <Nav.Link as={NavLink} to="/register"><i className="fas fa-user-plus"></i> Sign Up</Nav.Link>
+                                        <Nav.Link as={Link} to="/login"><i className="fas fa-sign-in-alt"></i> Sign In</Nav.Link>
+                                        <Nav.Link as={Link} to="/register"><i className="fas fa-user-plus"></i> Sign Up</Nav.Link>
                                     </div>
                                 </div>
                         }
