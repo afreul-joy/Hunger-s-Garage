@@ -13,6 +13,7 @@ import BuyNow from './Pages/Meals/BuyNow/BuyNow';
 import MyOrder from './Pages/MyOrder/MyOrder';
 import AddMeals from './Pages/AddMeals/AddMeals';
 import Edit from './Pages/MyOrder/Edit/Edit';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
 
         <Route path="/myOrders" 
         element={<MyOrder></MyOrder>}>        
+        </Route>
+        <Route path="/dashboard" 
+        element={<Dashboard></Dashboard>}>        
         </Route>
 
         <Route path="/myOrders/:id" 
