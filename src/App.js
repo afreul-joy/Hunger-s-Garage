@@ -41,9 +41,10 @@ function App() {
         element={<Meals></Meals>}>        
         </Route>
 
-        <Route path="/myOrders" 
+        <Route path="/dashboard/myOrders" 
         element={<MyOrder></MyOrder>}>        
         </Route>
+
         <Route path="/dashboard" 
         element={<Dashboard></Dashboard>}>        
         </Route>

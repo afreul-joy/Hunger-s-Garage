@@ -6,12 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -31,19 +25,21 @@ function Dashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
+      
+
+      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="contained" className="mb-2">Home</Button></Link> <br/>
       <Divider />
-      <List>
-        {['Hi', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon> 
-              {index % 2 === 0 ? <InboxIcon />  : <MailIcon   /> }
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="contained">Home</Button></Link>
-      {/* <Divider /> */}
+      <Link to='/dashboard/myOrders' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mt-2">My Orders</Button></Link> <br/>
+      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="my-2">Pay</Button></Link> <br/>
+      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mb-2">Review</Button></Link> <br/>
+
+      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mt-2">Make an admin</Button></Link> <br/>
+      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="my-3">Manage All Orders</Button></Link> <br/>
+      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mb-2">Add Product</Button></Link> <br/>
+      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="">Manage Product</Button></Link> <br/> <br />
+      <Divider />
+      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="contained" color="error"className="my-2">Logout</Button></Link> <br/>
+      
     </div>
   );
 
@@ -69,8 +65,8 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Dashboard
+          <Typography variant="h6" noWrap component="div" sx={{ mx: "auto", width: 300 }}>
+          Hunger's Garage Dashboard
           </Typography>
         </Toolbar>
       </AppBar>

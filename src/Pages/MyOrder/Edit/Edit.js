@@ -88,7 +88,7 @@ const Edit = () => {
                 <div className="d-flex justify-content-center align-items-center">
                     <Form  onSubmit={handleForm} className="w-50">
                         <Form.Control type="text" required   onChange={handleName} className="text-muted p-2  text-center" value={userData.name || ''} /> <br />
-                        <Form.Control type="text" required  onChange={handleEmail} className="text-muted p-2  text-center" value={userData.email || ''} /> <br />
+                        <Form.Control type="text" readOnly onChange={handleEmail} className="text-muted p-2  text-center" value={userData.email || ''} /> <br />
                         <Form.Control type="text" required onChange={handleNumber} className="text-muted p-2  text-center" value={userData.phone || ''} /> <br />
                         <Form.Control type="text" required onChange={handleAdress}  className="text-muted p-2  text-center" value={userData.address || ''} /> <br />
                         <Button type="submit" variant="contained" className="mb-2" >Update</Button>    

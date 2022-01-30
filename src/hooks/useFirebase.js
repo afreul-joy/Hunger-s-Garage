@@ -31,18 +31,17 @@ const useFirebase = () => {
   
   //   observer whether user auth state changed or not
   useEffect(() => {
-    const unsubscribed = onAuthStateChanged(auth, userInfo => {
-        if (userInfo && userInfo.emailVerified) {
-            setUser(userInfo);
+    const unsubscribed = onAuthStateChanged(auth, user => {
+        if (user) {
+            setUser(user);
         }
         else {
             setUser({});
         }
-        // setIsLoading(false);
-    });
+    }); 
     return () => unsubscribed;
 
-}, [auth]);
+}, []);
   
       return{user,signInUsingGoogle,signOutUsingGoogle}
   }

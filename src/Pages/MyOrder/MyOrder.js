@@ -2,14 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import useAuth from '../../hooks/useAuth';
 
 const MyOrder = () => {
     const [myOrders, setMyOrders] = useState([]);
+    // console.log(myOrders);
+   const {user} = useAuth();
+   console.log(user.email);
     useEffect(() => {
-        fetch('https://hungers-garage.herokuapp.com/myOrders')
+        const url = `http://localhost:5000/myOrders?email=${user?.email}`
+        fetch(url)
             .then(res => res.json())
-            .then(data => setMyOrders(data));
-    }, [myOrders?._id]);
+            .then(data =>setMyOrders(data));
+    }, [user?.email]);
 
     const handleDelete = id => {
         Swal.fire({
@@ -28,7 +33,7 @@ const MyOrder = () => {
                 'success'
               )
               {
-                const url = `https://hungers-garage.herokuapp.com/myOrders/${id}`
+                const url = `http://localhost:5000/myOrders/${id}`
                 fetch(url,{
                     method: 'DELETE',
     
@@ -48,7 +53,7 @@ const MyOrder = () => {
 
     return (
         <Container >
-        <h1>Manage All Orders {myOrders?.length}</h1>
+        <h1>My Orders {myOrders?.length}</h1>
         <Table striped bordered hover responsive>
             <thead>
                 <tr>
@@ -74,7 +79,7 @@ const MyOrder = () => {
                         <td>{myOrder?.email}</td>
                         <td>{myOrder?.phone}</td>
                         <td><Link to={`/myOrders/${myOrder._id}`}><button className="btn bg-info m-2"> <i class="fas fa-user-edit"></i> Edit</button></Link></td>
-                        <td><button onClick={() => handleDelete(myOrder?._id)} className="btn bg-warning m-2"> <i class="fas fa-trash"></i>  Delete</button></td>
+                        <td><button onClick={() => handleDelete(myOrder?._id)} className="btn bg-warning m-2"> <i class="fas fa-trash"></i>  Cancel</button></td>
      
                     </tr>
                 </tbody>
@@ -85,3 +90,4 @@ const MyOrder = () => {
 };
 
 export default MyOrder;
+
