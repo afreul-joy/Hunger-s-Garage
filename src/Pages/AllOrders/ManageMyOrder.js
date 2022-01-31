@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Button, Offcanvas } from 'react-bootstrap';
 
-const AllOrders = () => {
+const ManageMyOrder = () => {
+    const [show, setShow] = useState(true);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
+
     return (
         <div>
-            Hello My Orders
+                <>
+      <Button variant="primary" onClick={handleShow}>
+        Launch
+      </Button>
+
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
         </div>
     );
 };
 
-export default AllOrders;
+export default ManageMyOrder;

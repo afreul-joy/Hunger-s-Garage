@@ -3,9 +3,8 @@ import { Button,Dropdown,Nav, Navbar, NavLink } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { handleDownArrow, vanishDownArrow } from './navPlain';
-// import {  Link } from 'react-router-dom';
 import './Header.css'
-import { Box } from '@mui/system';
+
 
 const Header = () => {
   const {user,signOutUsingGoogle} = useAuth()
@@ -32,14 +31,19 @@ const Header = () => {
          <Nav.Link as={Link} to="/about">
          <Button className='rounded-pill' variant="outline-dark">About</Button>
             </Nav.Link>
+         <Nav.Link as={Link} to="/manageal">
+         <Button className='rounded-pill' variant="outline-dark">DashBhai</Button>
+            </Nav.Link>
             {user?.email ?
-                        <Box>
+                        <>
                             <Nav.Link as={Link} style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
                             <Button className='rounded-pill' variant="outline-dark">Dashboard</Button>
-                            <Button onClick={signOutUsingGoogle} className='rounded-pill ms-2' variant="outline-danger">Logout</Button>
                             </Nav.Link>
+                            <Nav.Link as={Link} style={{ textDecoration: 'none', color: 'white' }} to="/">
+                            <Button onClick={signOutUsingGoogle} className='rounded-pill ms-2' variant="outline-danger">Logout</Button>
+                        </Nav.Link>
                             
-                        </Box>
+                        </>
                         :
                         <Nav.Link as={Link} style={{ textDecoration: 'none', color: 'white' }} to="/login">
                             <Button className='rounded-pill' variant="outline-success">Login</Button>
@@ -48,7 +52,7 @@ const Header = () => {
                     }
 
 
-            {
+            {/* {
                             (user.email || user.displayName) ?
                             <Dropdown>
                               <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -84,7 +88,7 @@ const Header = () => {
                                         <Nav.Link as={Link} to="/register"><i className="fas fa-user-plus"></i> Sign Up</Nav.Link>
                                     </div>
                                 </div>
-                        }
+                        } */}
           </Nav>
 
         </Navbar.Collapse>

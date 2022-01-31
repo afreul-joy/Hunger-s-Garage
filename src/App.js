@@ -14,6 +14,7 @@ import MyOrder from './Pages/MyOrder/MyOrder';
 import AddMeals from './Pages/AddMeals/AddMeals';
 import Edit from './Pages/MyOrder/Edit/Edit';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import ManageMyOrder from './Pages/AllOrders/ManageMyOrder';
 
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
 
         <Route path="/meals" 
         element={<Meals></Meals>}>        
+        </Route>
+        <Route path="/manageal" 
+        element={<ManageMyOrder></ManageMyOrder>}>        
         </Route>
 
         <Route path="/dashboard/myOrders" 
