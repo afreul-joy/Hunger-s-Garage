@@ -2,15 +2,14 @@ import React from 'react';
 import { Button,Dropdown,Nav, Navbar, NavLink } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import { handleDownArrow, vanishDownArrow } from './navPlain';
 import './Header.css'
-
 
 const Header = () => {
   const {user,signOutUsingGoogle} = useAuth()
+  // console.log(user.emailVerified)
     return (
     
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light" onMouseOut={vanishDownArrow}>
+      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Navbar.Brand as={Link} to="/">
         <img
           alt=""
@@ -34,7 +33,7 @@ const Header = () => {
          <Nav.Link as={Link} to="/manageal">
          <Button className='rounded-pill' variant="outline-dark">DashBhai</Button>
             </Nav.Link>
-            {user?.email ?
+            {user?.email && user?.emailVerified ? 
                         <>
                             <Nav.Link as={Link} style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
                             <Button className='rounded-pill' variant="outline-dark">Dashboard</Button>
@@ -46,7 +45,7 @@ const Header = () => {
                         </>
                         :
                         <Nav.Link as={Link} style={{ textDecoration: 'none', color: 'white' }} to="/login">
-                            <Button className='rounded-pill' variant="outline-success">Login</Button>
+                            <Button className='rounded-pill' variant="outline-success">Login </Button>
                         </Nav.Link>
 
                     }

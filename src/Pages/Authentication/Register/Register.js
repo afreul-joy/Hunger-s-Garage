@@ -7,6 +7,7 @@ import { getAuth, createUserWithEmailAndPassword,sendEmailVerification,updatePro
 const Register = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const [password2,setPassword2] = useState('')
     const [error,setError] = useState('')
     const [success, setSuccess] = useState('');
     const [name,setName] = useState('')
@@ -34,7 +35,9 @@ const Register = () => {
             setSuccess('');
             return;
         }
-
+        if(password!==password2){
+            setError('Password Not Match!');
+        }
         createUserWithEmailAndPassword(auth, email, password)
         .then((result) => {
             const user = result.user
@@ -52,6 +55,7 @@ const Register = () => {
             setSuccess('');
         })
     }
+    // Hangle Email Password 
     const handleEmailChange = (e) =>{
         // console.log(e.target.value);
         setEmail(e.target.value);
@@ -59,6 +63,9 @@ const Register = () => {
 
     const handlePasswordChange = (e) =>{
         setPassword(e.target.value);
+    }
+    const handlePasswordChange2 = (e) =>{
+        setPassword2(e.target.value);
     }
 
     //----- Send Varification Mail to User----
@@ -101,6 +108,7 @@ const Register = () => {
                 <input type="text" onBlur={handleNameChange} className="form-control" id="" placeholder="Name" required />
                 <input type="email" onBlur={handleEmailChange} className="form-control" id="" placeholder="Email" required />
                 <input type="password" onBlur={handlePasswordChange} className="form-control" placeholder="Password" required />
+                <input type="password" onBlur={handlePasswordChange2} className="form-control" placeholder="Re Type Your Password" required />
                 <Button type="submit" variant="contained"><i className="fas fa-user-plus me-2"></i> Register</Button>
             </form>
          <p> Already Registered? <Link to='/login'>Sign In now!</Link></p> 
