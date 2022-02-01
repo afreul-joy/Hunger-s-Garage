@@ -5,7 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 import './Header.css'
 
 const Header = () => {
-  const {user,signOutUsingGoogle} = useAuth()
+  const {user, logOut} = useAuth()
   // console.log(user.emailVerified)
     return (
     
@@ -39,7 +39,7 @@ const Header = () => {
                             <Button className='rounded-pill' variant="outline-dark">Dashboard</Button>
                             </Nav.Link>
                             <Nav.Link as={Link} style={{ textDecoration: 'none', color: 'white' }} to="/">
-                            <Button onClick={signOutUsingGoogle} className='rounded-pill ms-2' variant="outline-danger">Logout</Button>
+                            <Button onClick={logOut} className='rounded-pill ms-2' variant="outline-danger">Logout</Button>
                         </Nav.Link>
                             
                         </>
