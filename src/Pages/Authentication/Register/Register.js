@@ -3,15 +3,14 @@ import { Alert, AlertTitle, Button, CircularProgress } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword,sendEmailVerification,updateProfile } from "firebase/auth";
+import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const [error,setError] = useState('')
     const [success, setSuccess] = useState('');
     const [registerData, setRegisterData] = useState({})
     // const [isLoading, setIsLoading] = useState(true)
-    // const {signInUsingGoogle}= useAuth() 
-
-    const auth = getAuth();
+    const {registerUser}= useAuth()
 
         // hangle onChange
         const handleOnChange = (e) =>{
@@ -46,7 +45,7 @@ const Register = () => {
             setError('Password Not Match!');
             return;
         }
-       
+        registerUser(registerData.email,registerData.password,registerData.text)
         // createUserWithEmailAndPassword(auth, email, password)
         
         // .then((result) => {
