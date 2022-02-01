@@ -9,8 +9,10 @@ const Register = () => {
     const [error,setError] = useState('')
     const [success, setSuccess] = useState('');
     const [registerData, setRegisterData] = useState({})
+    // const [name, setRegisterData] = useState({})
+
     // const [isLoading, setIsLoading] = useState(true)
-    const {registerUser}= useAuth()
+    const {registerUser,addUserName}= useAuth()
 
         // hangle onChange
         const handleOnChange = (e) =>{
@@ -46,6 +48,7 @@ const Register = () => {
             return;
         }
         registerUser(registerData.email,registerData.password,registerData.text)
+        // addUserName(registerData.text)
         // createUserWithEmailAndPassword(auth, email, password)
         
         // .then((result) => {
@@ -76,7 +79,8 @@ const Register = () => {
     //         // console.log(result);
     //     });
     // }
-    //---- User Additional Information-----
+    // ---- User Additional Information-----
+
     // const handleNameChange=(e)=>{
     //     setName(e.target.value)
     // }

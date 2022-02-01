@@ -33,7 +33,7 @@ const Header = () => {
          <Nav.Link as={Link} to="/manageal">
          <Button className='rounded-pill' variant="outline-dark">DashBhai</Button>
             </Nav.Link>
-            {user?.email && user?.emailVerified ? 
+            {user?.email  ?  
                         <>
                             <Nav.Link as={Link} style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">
                             <Button className='rounded-pill' variant="outline-dark">Dashboard</Button>
@@ -49,7 +49,7 @@ const Header = () => {
                         </Nav.Link>
 
                     }
-
+{/* && user?.emailVerified  */}
 
             {/* {
                             (user.email || user.displayName) ?

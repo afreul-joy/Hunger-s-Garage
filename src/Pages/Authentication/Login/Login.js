@@ -9,6 +9,7 @@ import useAuth from '../../../hooks/useAuth';
 const Login = () => {
     const {signInUsingGoogle}= useAuth()
     const [loading, setLoading] = useState(true)
+    const {loginUser,user} = useAuth()
     //------Privet Route & Navigate---------
     // let location = useLocation();
     // const navigate = useNavigate()
@@ -29,7 +30,7 @@ const Login = () => {
     const [loginData,setLoginData] = useState({})
     const [error,setError] = useState('')
     const [success, setSuccess] = useState('');
-    const auth = getAuth();
+    
 
     const handleOnChange = (e) =>{
         const field = e.target.name
@@ -43,6 +44,9 @@ const Login = () => {
     const handleLogin = (e) =>{
         e.preventDefault()
         console.log(loginData)
+
+        loginUser(loginData.email, loginData.password)
+    }
         // if(/^\S+@\S+\.\S+$/.test(password)){
         //   return setError("You Must Be provide valid email")
         // }
@@ -83,7 +87,7 @@ const Login = () => {
     //         setError(error.message)
     //          setSuccess('');
     //     })
-    }
+
 
 
     return (
