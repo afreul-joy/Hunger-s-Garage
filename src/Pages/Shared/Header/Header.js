@@ -49,7 +49,6 @@ const Header = () => {
                         </Nav.Link>
 
                     }
-{/* && user?.emailVerified  */}
 
             {/* {
                             (user.email || user.displayName) ?
