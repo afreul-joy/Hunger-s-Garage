@@ -26,6 +26,7 @@ const Register = () => {
             return;
         }
         registerUser(registerData.email,registerData.password)
+        
     }
 
     return (
