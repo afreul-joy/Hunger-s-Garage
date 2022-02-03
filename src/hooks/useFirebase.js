@@ -7,6 +7,7 @@ import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { useEffect } from "react";
 import initializeFirebase from "../Pages/Authentication/Firebase/firebase.init";
@@ -22,32 +23,31 @@ const useFirebase = () => {
   //--------- Google SignIn------------
   const googleProvider = new GoogleAuthProvider();
   const signInUsingGoogle = () => {
+    setIsLoading(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        // ...
+        setAuthError("");
       })
       .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
+        setAuthError(error.message);
+      })
+      .finally(() => isLoading(false));
   };
   //--------------Register User-----------------
-  const registerUser = (email, password) => {
+  const registerUser = (email, password, name) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setAuthError("");
+        // working with name
+        const newUser = { email, displayName: name };
+        setUser(newUser);
+        //send name to firebase after creation
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {})
+          .catch((error) => {});
       })
       .catch((error) => {
         setAuthError(error.message);

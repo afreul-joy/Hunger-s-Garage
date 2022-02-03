@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button,Dropdown,Nav, Navbar, NavLink } from 'react-bootstrap';
+import { Button,Nav, Navbar } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Header.css'
 
 const Header = () => {
   const {user, logOut} = useAuth()
+  console.log(user.displayName)
     return (
     
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -38,6 +39,7 @@ const Header = () => {
                             <Button className='rounded-pill' variant="outline-dark">Dashboard</Button>
                             </Nav.Link>
                             <Nav.Link as={Link} style={{ textDecoration: 'none', color: 'white' }} to="/">
+                              
                             <Button onClick={logOut} className='rounded-pill ms-2' variant="outline-danger">Logout</Button>
                         </Nav.Link>
                             
