@@ -30,9 +30,6 @@ const Header = () => {
          <Nav.Link as={Link} to="/about">
          <Button className='rounded-pill' variant="outline-dark">About</Button>
             </Nav.Link>
-         <Nav.Link as={Link} to="/manageal">
-         <Button className='rounded-pill' variant="outline-dark">DashBhai</Button>
-            </Nav.Link>
             {user?.email  ?  
                         <>
                             <Nav.Link as={Link} style={{ textDecoration: 'none', color: 'white' }} to="/dashboard">

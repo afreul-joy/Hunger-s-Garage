@@ -11,12 +11,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link, Outlet } from 'react-router-dom';
 import { Button } from '@mui/material';
-import {Route, Routes } from 'react-router-dom';
-import Pay from './Pay/Pay';
-import MyOrder from '../MyOrder/MyOrder';
-import Review from './Review/Review';
-// import MyOrder from './Pages/MyOrder/MyOrder';
-
 const drawerWidth = 240;
 
 function Dashboard(props) {
@@ -112,21 +106,8 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-
-        {/* <Routes>
-        <Route path="/" element={<Dashboard />}>
-      <Route path="/dashboard/pay" element={<Pay />}>
-        <Route path="dashboard/myOrders" element={<MyOrder />} />
-      </Route>
-    </Routes>
-     */}
-    {/* <Routes>
-      <Route path="/" element={<Dashboard />}>
-        <Route path="/dashboard/pay" element={<Pay />} />
-        <Route path="dashboard/myOrders" element={<MyOrder />} />
-      </Route>
-    </Routes> */}
-  <Outlet />
+     
+        <Outlet />   {/* Showing Nested Items  */}
     
       </Box>
     </Box>
@@ -142,4 +123,3 @@ Dashboard.propTypes = {
 };
 
 export default Dashboard;
-{/* <Route path="/dashboard/review" element={<Review />} /> */}
