@@ -9,8 +9,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { Button } from '@mui/material';
+import {Route, Routes } from 'react-router-dom';
+import Pay from './Pay/Pay';
+import MyOrder from '../MyOrder/MyOrder';
+import Review from './Review/Review';
+// import MyOrder from './Pages/MyOrder/MyOrder';
 
 const drawerWidth = 240;
 
@@ -30,8 +35,8 @@ function Dashboard(props) {
       <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="contained" className="mb-2">Home</Button></Link> <br/>
       <Divider />
       <Link to='/dashboard/myOrders' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mt-2">My Orders</Button></Link> <br/>
-      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="my-2">Pay</Button></Link> <br/>
-      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mb-2">Review</Button></Link> <br/>
+      <Link to='/dashboard/pay' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="my-2">Pay</Button></Link> <br/>
+      <Link to='/dashboard/review' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mb-2">Review</Button></Link> <br/>
 
       <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mt-2">Make an admin</Button></Link> <br/>
       <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="my-3">Manage All Orders</Button></Link> <br/>
@@ -107,9 +112,22 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        <Typography paragraph>
-            COntent here
-        </Typography>
+
+        {/* <Routes>
+        <Route path="/" element={<Dashboard />}>
+      <Route path="/dashboard/pay" element={<Pay />}>
+        <Route path="dashboard/myOrders" element={<MyOrder />} />
+      </Route>
+    </Routes>
+     */}
+    {/* <Routes>
+      <Route path="/" element={<Dashboard />}>
+        <Route path="/dashboard/pay" element={<Pay />} />
+        <Route path="dashboard/myOrders" element={<MyOrder />} />
+      </Route>
+    </Routes> */}
+  <Outlet />
+    
       </Box>
     </Box>
   );
@@ -124,3 +142,4 @@ Dashboard.propTypes = {
 };
 
 export default Dashboard;
+{/* <Route path="/dashboard/review" element={<Review />} /> */}
