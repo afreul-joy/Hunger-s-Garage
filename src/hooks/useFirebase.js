@@ -42,6 +42,8 @@ const useFirebase = () => {
         // working with name
         const newUser = { email, displayName: name };
         setUser(newUser);
+        // save user to Database
+        saveUser(email, name);
         //send name to firebase after creation
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -73,6 +75,15 @@ const useFirebase = () => {
       .then(() => {})
       .catch((error) => {})
       .finally(() => isLoading(false));
+  };
+  //---------- Save User to Database-----------------
+  const saveUser = (email, displayName) => {
+    const user = { email, displayName };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(user),
+    }).then();
   };
 
   //--------- observer whether user auth state changed or not-----------

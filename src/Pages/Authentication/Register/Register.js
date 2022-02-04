@@ -9,7 +9,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const { user, registerUser, isLoading, authError } = useAuth();
 
-  // hangle onBlur
+  // handle onBlur
   const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
