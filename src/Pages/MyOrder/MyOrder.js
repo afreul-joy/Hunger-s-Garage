@@ -10,7 +10,7 @@ const MyOrder = () => {
    const {user} = useAuth();
    console.log(user.email);
     useEffect(() => {
-        const url = `http://localhost:5000/myOrders?email=${user?.email}`
+        const url = `https://hungers-garage.herokuapp.com/myOrders?email=${user?.email}`
         fetch(url)
             .then(res => res.json())
             .then(data =>setMyOrders(data));
@@ -33,7 +33,7 @@ const MyOrder = () => {
                 'success'
               )
               {
-                const url = `http://localhost:5000/myOrders/${id}`
+                const url = `https://hungers-garage.herokuapp.com/myOrders/${id}`
                 fetch(url,{
                     method: 'DELETE',
     
