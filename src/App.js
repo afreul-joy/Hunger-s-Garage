@@ -18,6 +18,7 @@ import ManageMyOrder from "./Pages/AllOrders/ManageMyOrder";
 import Pay from "./Pages/Dashboard/Pay/Pay";
 import Review from "./Pages/Dashboard/Review/Review";
 import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
+import MakeAnAdmin from "./Pages/Dashboard/MakeAnAdmin/MakeAnAdmin";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="/dashboard" element={<DashboardHome />} />
             <Route path="/dashboard/pay" element={<Pay />} />
             <Route path="/dashboard/review" element={<Review />} />
+            <Route path="/dashboard/makeAdmin" element={<MakeAnAdmin />} />
             <Route path="/dashboard/myOrders" element={<MyOrder />} />
           </Route>
 

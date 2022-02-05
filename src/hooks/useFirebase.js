@@ -18,6 +18,7 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [authError, setAuthError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setAdmin] = useState(false);
 
   const auth = getAuth();
   //--------- Google SignIn------------
@@ -30,7 +31,7 @@ const useFirebase = () => {
         // The signed-in user info.
         const user = result.user;
         // save user to Database
-        saveUser(user.email, user.displayName,'PUT');
+        saveUser(user.email, user.displayName, "PUT");
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -102,6 +103,12 @@ const useFirebase = () => {
     });
     return () => unsubscribed;
   }, []);
+  //---------- Admin ---------------------
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+    .then(res=>res.json())
+    .then(data=>setAdmin(data.admin))
+  }, [user.email]);
 
   return {
     user,
@@ -111,6 +118,7 @@ const useFirebase = () => {
     loginUser,
     isLoading,
     authError,
+    admin
   };
 };
 

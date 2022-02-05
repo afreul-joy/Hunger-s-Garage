@@ -11,6 +11,9 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link, Outlet } from 'react-router-dom';
 import { Button } from '@mui/material';
+import useAuth from '../../hooks/useAuth';
+
+
 const drawerWidth = 240;
 
 function Dashboard(props) {
@@ -21,10 +24,12 @@ function Dashboard(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  // ----------Admin-----------------
+  const {admin}  =useAuth()
+
   const drawer = (
     <div>
       <Toolbar />
-      
 
       <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="contained" className="mb-2">Home</Button></Link> <br/>
       <Divider />
@@ -32,10 +37,15 @@ function Dashboard(props) {
       <Link to='/dashboard/pay' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="my-2">Pay</Button></Link> <br/>
       <Link to='/dashboard/review' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mb-2">Review</Button></Link> <br/>
 
-      <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mt-2">Make an admin</Button></Link> <br/>
+    {admin&& <Box> 
+      <Link to='/dashboard/makeAdmin' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mt-2">Make an admin</Button></Link> <br/>
       <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="my-3">Manage All Orders</Button></Link> <br/>
       <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="mb-2">Add Product</Button></Link> <br/>
       <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="outlined"className="">Manage Product</Button></Link> <br/> <br />
+     
+      
+       </Box> }
+    
       <Divider />
       <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><Button variant="contained" color="error"className="my-2">Logout</Button></Link> <br/>
       
