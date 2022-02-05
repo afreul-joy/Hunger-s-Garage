@@ -1,11 +1,38 @@
-import React from 'react';
+import React from "react";
+import { Container, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
+import img from "../.../../../Images/About/about.jpg";
 
 const About = () => {
-    return (
-        <div>
-            <h2>ABout page</h2>
-        </div>
-    );
+  return (
+    <div>
+      <Container className="">
+        <h1 className="destination-heading pt-5">About Us</h1> <hr />
+        <Row>
+          <Col>
+            <img className="rounded my-4" src={img} width="500px" alt="" />
+          </Col>
+          <Col className="my-3 d-flex align-items-center ">
+            <div>
+              <p>
+                <strong>
+                  A Tradition of Excellence, Integrity, Knowledge and Service
+                  for over 7 years.
+                </strong>
+                <br />
+                <br />
+                ‘Hunger's Garage’ Restaurants are well known with a substantial
+                gathering of people including families, kids, seniors, and
+                business experts. Our benevolent condition is perfect for
+                praising unique events, facilitating a business lunch, or
+                assembling for a flavorful dinner with loved ones.
+              </p>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
 };
 
 export default About;
