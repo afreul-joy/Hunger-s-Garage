@@ -6,13 +6,13 @@ import img from "../.../../../Images/About/about.jpg";
 const About = () => {
   return (
     <div>
-      <Container className="">
+      <Container >
         <h1 className="destination-heading pt-5">About Us</h1> <hr />
         <Row>
-          <Col>
-            <img className="rounded my-4" src={img} width="500px" alt="" />
-          </Col>
-          <Col className="my-3 d-flex align-items-center ">
+          <div className="col-md-6 col-lg-6 col-12">
+            <img className="rounded my-4 img-fluid"  src={img} width="500px" alt="" />
+          </div>
+          <div className=" col-md-6 col-lg-6 col-12 my-3 d-flex align-items-center ">
             <div>
               <p>
                 <strong>
@@ -28,7 +28,7 @@ const About = () => {
                 assembling for a flavorful dinner with loved ones.
               </p>
             </div>
-          </Col>
+          </div>
         </Row>
       </Container>
     </div>
