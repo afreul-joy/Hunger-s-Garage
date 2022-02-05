@@ -3,7 +3,7 @@ import React from 'react';
 const Breakfast = () => {
     return (
         <div id='breakfast'>
-            <h2>Breakfast</h2>
+            <h2>Breakfast My BOy</h2>
         </div>
     );
 };

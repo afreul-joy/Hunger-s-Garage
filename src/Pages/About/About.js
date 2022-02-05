@@ -6,11 +6,16 @@ import img from "../.../../../Images/About/about.jpg";
 const About = () => {
   return (
     <div>
-      <Container >
+      <Container>
         <h1 className="destination-heading pt-5">About Us</h1> <hr />
         <Row>
           <div className="col-md-6 col-lg-6 col-12">
-            <img className="rounded my-4 img-fluid"  src={img} width="500px" alt="" />
+            <img
+              className="rounded my-4 img-fluid"
+              src={img}
+              width="500px"
+              alt=""
+            />
           </div>
           <div className=" col-md-6 col-lg-6 col-12 my-3 d-flex align-items-center ">
             <div>

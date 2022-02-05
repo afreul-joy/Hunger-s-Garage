@@ -14,18 +14,21 @@ import MyOrder from "./Pages/MyOrder/MyOrder";
 import AddMeals from "./Pages/AddMeals/AddMeals";
 import Edit from "./Pages/MyOrder/Edit/Edit";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import ManageMyOrder from "./Pages/AllOrders/ManageMyOrder";
 import Pay from "./Pages/Dashboard/Pay/Pay";
 import Review from "./Pages/Dashboard/Review/Review";
 import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
 import MakeAnAdmin from "./Pages/Dashboard/MakeAnAdmin/MakeAnAdmin";
+import Footer from "./Pages/Shared/Footer/Footer";
+import Breakfast from "./Pages/Home/Tabs/Breakfast/Breakfast";
+import Lunch from "./Pages/Home/Tabs/Lunch/Lunch";
+import Dinner from "./Pages/Home/Tabs/Dinner/Dinner";
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Header></Header>
-
+        
         <Routes>
           <Route path="/about" element={<About></About>}></Route>
 
@@ -49,10 +52,16 @@ function App() {
 
           <Route path="/meals/:id" element={<BuyNow></BuyNow>}></Route>
 
-          <Route path="/" element={<Home></Home>}></Route>
+          <Route path="/" element={<Home></Home>}>
+          <Route path="/allMeals/breakfast" element={<Breakfast />} />
+          <Route path="/" element={<Breakfast />} />
+          <Route path="/allMeals/lunch" element={<Lunch />} />
+          <Route path="/allMeals/dinner" element={<Dinner />} />
+          </Route>
 
           <Route path="*" element={<Error></Error>}></Route>
         </Routes>
+        <Footer></Footer>
       </AuthProvider>
     </div>
   );
