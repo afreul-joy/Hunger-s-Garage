@@ -53,8 +53,8 @@ function App() {
           <Route path="/meals/:id" element={<BuyNow></BuyNow>}></Route>
 
           <Route path="/" element={<Home></Home>}>
+          <Route path="/" element={<Lunch />} />
           <Route path="/allMeals/breakfast" element={<Breakfast />} />
-          <Route path="/" element={<Breakfast />} />
           <Route path="/allMeals/lunch" element={<Lunch />} />
           <Route path="/allMeals/dinner" element={<Dinner />} />
           </Route>
