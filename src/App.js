@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Header></Header>
-        
+
         <Routes>
           <Route path="/about" element={<About></About>}></Route>
 
@@ -53,10 +53,10 @@ function App() {
           <Route path="/meals/:id" element={<BuyNow></BuyNow>}></Route>
 
           <Route path="/" element={<Home></Home>}>
-          <Route path="/" element={<Lunch />} />
-          <Route path="/allMeals/breakfast" element={<Breakfast />} />
-          <Route path="/allMeals/lunch" element={<Lunch />} />
-          <Route path="/allMeals/dinner" element={<Dinner />} />
+            <Route path="/" element={<Lunch />} />
+            <Route path="/allMeals/breakfast" element={<Breakfast />} />
+            <Route path="/allMeals/lunch" element={<Lunch />} />
+            <Route path="/allMeals/dinner" element={<Dinner />} />
           </Route>
 
           <Route path="*" element={<Error></Error>}></Route>
