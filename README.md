@@ -1,7 +1,7 @@
 
 # Hunger's Garage
 
-It's Basically Food Purchase Website .
+It's Basically Restaurant  Website .
 
 ## Tech Stack
 
