@@ -37,7 +37,7 @@ const Dashboard = () => {
                   <li>
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/dashboard/addProperties"
+                      to="/dashboard/addMeals"
                     >
                       <span className="text"> Add Meals</span>
                     </Link>

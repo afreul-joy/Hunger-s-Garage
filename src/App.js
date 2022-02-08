@@ -11,10 +11,8 @@ import AuthProvider from "./context/AuthProvider";
 import Meals from "./Pages/Meals/Meals";
 import BuyNow from "./Pages/Meals/BuyNow/BuyNow";
 import MyOrder from "./Pages/MyOrder/MyOrder";
-import AddMeals from "./Pages/AddMeals/AddMeals";
 import Edit from "./Pages/MyOrder/Edit/Edit";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import Pay from "./Pages/Dashboard/Pay/Pay";
 import Review from "./Pages/Dashboard/Review/Review";
 import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
 import MakeAnAdmin from "./Pages/Dashboard/MakeAnAdmin/MakeAnAdmin";
@@ -22,6 +20,7 @@ import Footer from "./Pages/Shared/Footer/Footer";
 import Breakfast from "./Pages/Home/Tabs/Breakfast/Breakfast";
 import Lunch from "./Pages/Home/Tabs/Lunch/Lunch";
 import Dinner from "./Pages/Home/Tabs/Dinner/Dinner";
+import AddMeals from "./Pages/Dashboard/AddMeals/AddMeals";
 
 function App() {
   return (
@@ -40,15 +39,13 @@ function App() {
 
           <Route path="/dashboard" element={<Dashboard></Dashboard>}>
             <Route path="/dashboard" element={<DashboardHome />} />
-            <Route path="/dashboard/pay" element={<Pay />} />
             <Route path="/dashboard/review" element={<Review />} />
             <Route path="/dashboard/makeAdmin" element={<MakeAnAdmin />} />
             <Route path="/dashboard/myOrders" element={<MyOrder />} />
+            <Route path="/dashboard/addMeals" element={<AddMeals />} />
           </Route>
 
           <Route path="/myOrders/:id" element={<Edit></Edit>}></Route>
-
-          <Route path="/addMeals" element={<AddMeals></AddMeals>}></Route>
 
           <Route path="/meals/:id" element={<BuyNow></BuyNow>}></Route>
 
