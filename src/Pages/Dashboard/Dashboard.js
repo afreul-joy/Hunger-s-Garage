@@ -57,10 +57,10 @@ const Dashboard = () => {
                   <li>
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/dashboard/deleteAgent"
+                      to="/dashboard/manageOrders"
                     >
                       {" "}
-                      <span className="text"> All Orders </span>{" "}
+                      <span className="text"> Manage Orders </span>{" "}
                     </Link>
                   </li>
                   <hr />
