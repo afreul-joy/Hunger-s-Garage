@@ -47,7 +47,7 @@ const Dashboard = () => {
                   <li>
                     <Link
                       style={{ textDecoration: "none" }}
-                      to="/dashboard/delete"
+                      to="/dashboard/deleteMeal"
                     >
                       {" "}
                       <span className="text"> Delete Meals </span>{" "}

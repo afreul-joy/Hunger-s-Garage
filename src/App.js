@@ -21,6 +21,7 @@ import Breakfast from "./Pages/Home/Tabs/Breakfast/Breakfast";
 import Lunch from "./Pages/Home/Tabs/Lunch/Lunch";
 import Dinner from "./Pages/Home/Tabs/Dinner/Dinner";
 import AddMeals from "./Pages/Dashboard/AddMeals/AddMeals";
+import DeleteMeal from "./Pages/Dashboard/DeleteMeal/DeleteMeal";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
             <Route path="/dashboard/makeAdmin" element={<MakeAnAdmin />} />
             <Route path="/dashboard/myOrders" element={<MyOrder />} />
             <Route path="/dashboard/addMeals" element={<AddMeals />} />
+            <Route path="/dashboard/deleteMeal" element={<DeleteMeal />} />
           </Route>
 
           <Route path="/myOrders/:id" element={<Edit></Edit>}></Route>
