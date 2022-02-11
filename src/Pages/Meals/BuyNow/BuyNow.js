@@ -23,7 +23,7 @@ const BuyNow = () => {
   //form method
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [pending, setPending] = useState("");
+  // const [pending, setPending] = useState("");
 
   const handleNumber = (e) => { 
     const phoneNumber = e.target.value;
@@ -44,7 +44,7 @@ const BuyNow = () => {
       productPrice: meal.price,
       phone: phone,
       address: address,
-      status:pending
+      status:"pending"
     };
     console.log(userData);
 
