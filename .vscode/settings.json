@@ -21,7 +21,6 @@
     "editor.cursorSmoothCaretAnimation": true,
     "diffEditor.wordWrap": "on",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
     "files.associations": {"*html": "html"},
       // emmet
     "emmet.triggerExpansionOnTab": true, 
@@ -33,4 +32,3 @@
       "javascript.updateImportsOnFileMove.enabled": "always",
       "diffEditor.ignoreTrimWhitespace": false,
     }
-  

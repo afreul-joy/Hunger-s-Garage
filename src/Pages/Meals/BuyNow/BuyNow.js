@@ -12,6 +12,7 @@ const BuyNow = () => {
   const { id } = useParams();
 
   const { user } = useAuth();
+  console.log(user.displayName);
   //showing single details
   useEffect(() => {
     const url = `https://hungers-garage.herokuapp.com/meals/${id}`;
@@ -20,32 +21,23 @@ const BuyNow = () => {
       .then((data) => setMeal(data));
   }, []);
 
-  //form method
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  // const [pending, setPending] = useState("");
+  //-----------form method --------------
+  const [userData, setUserData] = useState({});
 
-  const handleNumber = (e) => { 
-    const phoneNumber = e.target.value;
-    setPhone(phoneNumber);
-  };
-  const handleAdress = (e) => {
-    const Address = e.target.value;
-    setAddress(Address);
+  // handle onBlur
+  const handleOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = { ...userData };
+    newLoginData[field] = value;
+    console.log(newLoginData);
+    setUserData(newLoginData);
   };
 
   const handleForm = (e) => {
+    userData.status = "Pending";
     e.preventDefault();
-    const userData = {
-      name: user.displayName,
-      email: user.email,
-      img: meal.img,
-      productName: meal.name,
-      productPrice: meal.price,
-      phone: phone,
-      address: address,
-      status:"pending"
-    };
+
     console.log(userData);
 
     // Send data server POST API
@@ -85,56 +77,48 @@ const BuyNow = () => {
           <div className="col-lg-6">
             <h4 className="text-info mb-3">Order Requirement</h4>
             <div className="d-flex justify-content-center align-items-center">
-              <Form onSubmit={handleForm} className="w-50">
-                <Form.Control
-                  type="text"
-                  readOnly
-                  className="text-muted p-2  text-center"
-                  value={`Name: ${user.displayName}` || ""}
-                />{" "}
-                <br />
-                <Form.Control
-                  type="text"
-                  readOnly
-                  className="text-muted p-2  text-center"
-                  value={`Email: ${user.email}` || ""}
-                />{" "}
-                <br />
-                <Form.Control
-                  type="text"
-                  readOnly
-                  className="text-muted p-2  text-center"
-                  value={`Meal Name: ${meal.name}` || ""}
-                />{" "}
-                <br />
-                <Form.Control
-                  type="text"
-                  readOnly
-                  className="text-muted p-2  text-center"
-                  value={`Price: ${meal.price}` || ""}
-                />{" "}
-                <br />
-                <Form.Control
-                  type="text"
+              <form
+                onSubmit={handleForm}
+                className="col-md-8 d-flex flex-column gap-4 mx-auto mb-4"
+              >
+                <input
+                  onBlur={handleOnBlur}
+                  name="name"
+                  type="name"
+                  className="form-control"
+                  id=""
+                  defaultValue={user.displayName}
                   required
-                  onChange={handleNumber}
-                  className="text-muted p-2  text-center"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  onBlur={handleOnBlur}
+                  className="form-control"
+                  id=""
+                  defaultValue={user.email}
+                  required
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  onBlur={handleOnBlur}
+                  className="form-control"
                   placeholder="Enter Your Phone Number"
-                />{" "}
-                <br />
-                <Form.Control
-                  type="text"
                   required
-                  onChange={handleAdress}
-                  className="text-muted p-2  text-center"
+                />
+                <input
+                  type="text"
+                  name="address"
+                  onBlur={handleOnBlur}
+                  className="form-control"
                   placeholder="Enter Your Address"
-                />{" "}
-                <br />
-                <Button type="submit" variant="contained" className="mb-2">
-                  Confirm
+                  required
+                />
+                <Button type="submit" variant="contained">
+                  <i className="fas fa-plus me-2"></i> Update
                 </Button>
-                <ToastContainer />
-              </Form>
+              </form>
             </div>
           </div>
         </Row>
