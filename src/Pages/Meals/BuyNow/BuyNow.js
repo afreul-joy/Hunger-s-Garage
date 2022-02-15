@@ -5,10 +5,12 @@ import { useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useForm } from 'react-hook-form';
+import './BuyNow.css'
 
 const BuyNow = () => {
   const [meal, setMeal] = useState({});
-
+  
   const { id } = useParams();
 
   const { user } = useAuth();
@@ -22,6 +24,10 @@ const BuyNow = () => {
   }, []);
 
   //-----------form method --------------
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+  console.log(errors);
+
   const [userData, setUserData] = useState({});
 
   // handle onBlur
@@ -76,8 +82,18 @@ const BuyNow = () => {
           </div>
           <div className="col-lg-6">
             <h4 className="text-info mb-3">Order Requirement</h4>
-            <div className="d-flex justify-content-center align-items-center">
-              <form
+            <div className="d-flex justify-content-center align-items-center form-style">
+
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <input type="text" placeholder={user.displayName} {...register("name", {required: true, maxLength: 80})}  required  />
+                    <input type="text" placeholder={user.email} {...register("email", {required: true, pattern: /^\S+@\S+$/i})}  required/>
+                    <input type="tel" placeholder="Mobile number" {...register("phone", {required: true, minLength: 6, maxLength: 12})}  required/>
+                    <input type="datetime-local" placeholder="Date" {...register("date", {required: true})}  required />
+                    <input type="text" placeholder="Address" {...register("address", {required: true})} required />
+
+                    <input type="submit" />
+                </form>
+              {/* <form
                 onSubmit={handleForm}
                 className="col-md-8 d-flex flex-column gap-4 mx-auto mb-4"
               >
@@ -118,7 +134,7 @@ const BuyNow = () => {
                 <Button type="submit" variant="contained">
                   <i className="fas fa-plus me-2"></i> Update
                 </Button>
-              </form>
+              </form> */}
             </div>
           </div>
         </Row>
