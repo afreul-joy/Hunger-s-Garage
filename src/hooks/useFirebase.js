@@ -102,7 +102,7 @@ const useFirebase = () => {
       setIsLoading(false);
     });
     return () => unsubscribed;
-  }, []);
+  }, [auth]);
   //---------- Admin ---------------------
   useEffect(() => {
     fetch(`https://hungers-garage.herokuapp.com/users/${user.email}`)

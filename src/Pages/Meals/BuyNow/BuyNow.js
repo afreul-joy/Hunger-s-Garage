@@ -10,43 +10,32 @@ import "./BuyNow.css";
 
 const BuyNow = () => {
   const [meal, setMeal] = useState({});
-
   const { id } = useParams();
-
   const { user } = useAuth();
-  console.log(user.displayName);
+
   //showing single details
   useEffect(() => {
     const url = `https://hungers-garage.herokuapp.com/meals/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMeal(data));
-  }, []);
- 
+  }, [id]);
+
   //-----------form method --------------
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  const { register, handleSubmit } = useForm();
 
-  const [userData, setUserData] = useState({});
-
-  
-
-  const handleForm = (e) => {
-    userData.status = "Pending";
-    e.preventDefault();
-
-    console.log(userData);
+  const onSubmit = (data, e) => {
+    data.status = "Pending";
+    data.img=meal.img;
+    data.productName=meal.name
+    console.log(data);
+    // e.preventDefault();
 
     // Send data server POST API
     fetch("http://localhost:5000/purchase", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(userData),
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -81,41 +70,35 @@ const BuyNow = () => {
             <div className="d-flex justify-content-center align-items-center form-style">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
-                  type="text"
+                  defaultValue={user.displayName}
+                  {...register("name")}
                   required
-                  placeholder={user.displayName}
-                  {...register("name", { required: true, maxLength: 80 })}
                 />
                 <input
-                  type="text"
+                  defaultValue={user.email}
+                  {...register("email")}
                   required
-                  placeholder="Phone"
-                  {...register("contact", { required: true, maxLength: 80 })}
                 />
+            
+
+                <input type="date" {...register("date")} required />
                 <input
                   type="text"
-                  required
-                  placeholder={user.email}
-                  {...register("email", {
-                    required: true,
-                    pattern: /^\S+@\S+$/i,
-                  })}
-                />
-                <input
-                  type="datetime-local"
-                  required
-                  placeholder="Date"
-                  {...register("date", { required: true })}
-                />
-                <input
-                  type="text"
-                  required
                   placeholder="Address"
-                  {...register("address", { required: true })}
+                  {...register("address")}
+                  required
                 />
-                <Button type="submit" variant="contained">
-                  <i className="fas fa-plus me-2"></i> Update
-                </Button>
+                    <input
+                  type="text"
+                  placeholder="Phone"
+                  {...register("contact")}
+                  required
+                />
+                <input
+                  className="signBtn"
+                  type="submit"
+                  value="Submit & Billing"
+                />
               </form>
             </div>
           </div>
