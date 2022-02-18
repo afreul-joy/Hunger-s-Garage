@@ -5,12 +5,12 @@ import { useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useForm } from 'react-hook-form';
-import './BuyNow.css'
+import { useForm } from "react-hook-form";
+import "./BuyNow.css";
 
 const BuyNow = () => {
   const [meal, setMeal] = useState({});
-  
+
   const { id } = useParams();
 
   const { user } = useAuth();
@@ -22,23 +22,19 @@ const BuyNow = () => {
       .then((res) => res.json())
       .then((data) => setMeal(data));
   }, []);
-
+ 
   //-----------form method --------------
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
   console.log(errors);
 
   const [userData, setUserData] = useState({});
 
-  // handle onBlur
-  const handleOnBlur = (e) => {
-    const field = e.target.name;
-    const value = e.target.value;
-    const newLoginData = { ...userData };
-    newLoginData[field] = value;
-    console.log(newLoginData);
-    setUserData(newLoginData);
-  };
+  
 
   const handleForm = (e) => {
     userData.status = "Pending";
@@ -83,58 +79,44 @@ const BuyNow = () => {
           <div className="col-lg-6">
             <h4 className="text-info mb-3">Order Requirement</h4>
             <div className="d-flex justify-content-center align-items-center form-style">
-
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    <input type="text" placeholder={user.displayName} {...register("name", {required: true, maxLength: 80})}  required  />
-                    <input type="text" placeholder={user.email} {...register("email", {required: true, pattern: /^\S+@\S+$/i})}  required/>
-                    <input type="tel" placeholder="Mobile number" {...register("phone", {required: true, minLength: 6, maxLength: 12})}  required/>
-                    <input type="datetime-local" placeholder="Date" {...register("date", {required: true})}  required />
-                    <input type="text" placeholder="Address" {...register("address", {required: true})} required />
-
-                    <input type="submit" />
-                </form>
-              {/* <form
-                onSubmit={handleForm}
-                className="col-md-8 d-flex flex-column gap-4 mx-auto mb-4"
-              >
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <input
-                  onBlur={handleOnBlur}
-                  name="name"
-                  type="name"
-                  className="form-control"
-                  id=""
-                  defaultValue={user.displayName}
+                  type="text"
                   required
-                />
-                <input
-                  type="email"
-                  name="email"
-                  onBlur={handleOnBlur}
-                  className="form-control"
-                  id=""
-                  defaultValue={user.email}
-                  required
+                  placeholder={user.displayName}
+                  {...register("name", { required: true, maxLength: 80 })}
                 />
                 <input
                   type="text"
-                  name="phone"
-                  onBlur={handleOnBlur}
-                  className="form-control"
-                  placeholder="Enter Your Phone Number"
                   required
+                  placeholder="Phone"
+                  {...register("contact", { required: true, maxLength: 80 })}
                 />
                 <input
                   type="text"
-                  name="address"
-                  onBlur={handleOnBlur}
-                  className="form-control"
-                  placeholder="Enter Your Address"
                   required
+                  placeholder={user.email}
+                  {...register("email", {
+                    required: true,
+                    pattern: /^\S+@\S+$/i,
+                  })}
+                />
+                <input
+                  type="datetime-local"
+                  required
+                  placeholder="Date"
+                  {...register("date", { required: true })}
+                />
+                <input
+                  type="text"
+                  required
+                  placeholder="Address"
+                  {...register("address", { required: true })}
                 />
                 <Button type="submit" variant="contained">
                   <i className="fas fa-plus me-2"></i> Update
                 </Button>
-              </form> */}
+              </form>
             </div>
           </div>
         </Row>
