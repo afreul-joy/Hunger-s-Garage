@@ -61,13 +61,13 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <div className="navmenu">
-                <NavLink to="/" activeClassName="selected">
+                <NavLink to="/" className={(selected) => (selected.isActive ? 'selected' : '')}>
                   Home
                 </NavLink>
-                <NavLink to="/meals" activeClassName="selected">
+                <NavLink to="/meals" className={(selected) => (selected.isActive ? 'selected' : '')}>
                   Explore
                 </NavLink>
-                {user?.email && <NavLink to="/dashboard" activeClassName="selected">
+                {user?.email && <NavLink to="/dashboard" className={(selected) => (selected.isActive ? 'selected' : '')}>
                   Dashboard
                 </NavLink>}
                 {user?.email ? (
@@ -80,7 +80,7 @@ const Header = () => {
                   </small>
                 </div>
                 ) : (
-                    <Link to="/signin">
+                    <Link to="/login">
                       <button className="loginBtn">Sign In</button>
                     </Link>
                 )}

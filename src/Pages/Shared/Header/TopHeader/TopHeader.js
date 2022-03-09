@@ -10,7 +10,7 @@ const TopHeader = () => {
                     <Col xs={12} sm={12} md={6} lg={6}>
                         <div className="phone d-flex fw-bold text-light text-center">
                         <i className="fas fa-phone-volume me-1 fs-4 mt-1"></i>
-                        <p className="mt-1">+9672373473445</p>
+                        <p className="mt-1">+0881672345</p>
                         </div>
                     </Col>
                     <Col xs={12} sm={12} md={6} lg={6}>

@@ -13,6 +13,8 @@
 
 .navmenu .selected{
     border-bottom: 3px solid #3498db;
+    font-weight: bold;
+    color: #3498db;
 }
 
 .loginBtn{
