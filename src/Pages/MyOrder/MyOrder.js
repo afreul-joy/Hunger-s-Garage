@@ -56,7 +56,6 @@ const MyOrder = () => {
             <th>Order No</th>
             <th>Image</th>
             <th>Product Name</th>
-            <th>Price</th>
             <th>Status</th>
             <th>Edit</th>
             <th>Action</th>
@@ -75,7 +74,6 @@ const MyOrder = () => {
                 />
               </td>
               <td>{myOrder?.productName}</td>
-              <td>{myOrder?.productPrice}</td>
               <td>{myOrder?.status}</td>
               <td>
                 <Link to={`/myOrders/${myOrder._id}`}>

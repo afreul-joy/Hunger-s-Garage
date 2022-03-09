@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
-// import useAuth from "../../hooks/useAuth";
 
 const ManageOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -56,7 +54,7 @@ const ManageOrders = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          alert("Order Shipped Successfully!", "", "success");
+          alert("Order Approved Successfully!", "", "success");
         }
       });
   };
@@ -90,13 +88,13 @@ const ManageOrders = () => {
               <td>{myOrder?.productName}</td>
               <td>{myOrder?.name}</td>
               <td>{myOrder?.email}</td>
-              <td>{myOrder?.productPrice}</td>
+              
               <td>
                 <button
                   onClick={() => shippedOrder(myOrder._id)}
-                  className="btn btn-success btn-sm me-3"
+                  className="btn btn-primary btn-sm me-3"
                 >
-                  <i className="fas fa-check-circle"></i> {myOrder?.status}
+                 {myOrder?.status}
                 </button>
               </td>
 
