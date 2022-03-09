@@ -2,15 +2,15 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./banner.css";
 
-console.log(React.version);
-// import Fade from 'react-reveal/Fade';
+
+import Fade from 'react-reveal/Fade';
 
 const Banner = () => {
   return (
     <div className="banner-area">
       <Container>
         <Row className="banner-intro">
-          {/* <Fade left> */}
+          <Fade left>
           <Col xs={12} md={6} lg={6}>
             <h2 className="h3-color">Welcome to</h2>
             <h1>Hunger Garage</h1>
@@ -19,7 +19,7 @@ const Banner = () => {
             </p>
             <button className="readBtn">Read More</button>
           </Col>
-          {/* </Fade> */}
+          </Fade>
           <Col xs={12} md={6} lg={6}></Col>
         </Row>
       </Container>
