@@ -1,6 +1,71 @@
+.banner-area{
+  background-image: url("../Banner/../../../Images/Banner/ban.jpg");
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: rgba(25, 26, 26, 0.657);
+  background-blend-mode: darken, luminosity;
+  color: #fff;
+}
+
+.banner-intro{
+  padding: 100px 0;
+}
+.banner-intro .h3-color{
+  color: #FFBA5C;
+}
+.banner-intro h1{
+  text-align: left;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.banner-intro p{
+  width: 75%;
+  text-align: left;
+  font-size: 18px;
+}
+
+.banner-intro .readBtn{
+  
+  background-color: #0b79c2;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 30px;
+  border-radius: 10px;
+  
+}
+
+.readBtn:hover{
+  background-color: #0079ca;
+}
+
+@media only screen and (max-width: 575px) {
+  .banner-intro{
+      padding: 45px 15px;
+  }
+
+  .banner-intro h1{
+      width: 90%;
+      font-size: 24px;
+  }
+
+  .banner-intro p{
+      width: 100%;
+      font-size: 16px;
+  }
+
+  .banner-area{
+      background-size: 100% 100%;
+      background-attachment: unset;
+  }
+}
+
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+/* @media only screen and (min-width: 992px) {
     .banner {
       background-image: url("../Banner/../../../Images/Banner/ban.jpg");
       width: 100%;
@@ -29,10 +94,10 @@
       color: white;
       font-style: italic;
     }
-  }
+  } */
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .banner {
     background-image: url("../Banner/../../../Images/Banner/ban.jpg");
     max-width: 100%;
@@ -58,5 +123,5 @@
     color: white;
     font-style: italic;
   }
-}
+} */
 
