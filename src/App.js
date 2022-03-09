@@ -23,11 +23,14 @@ import Dinner from "./Pages/Home/Tabs/Dinner/Dinner";
 import AddMeals from "./Pages/Dashboard/AddMeals/AddMeals";
 import DeleteMeal from "./Pages/Dashboard/DeleteMeal/DeleteMeal";
 import ManageOrders from "./Pages/Dashboard/ManageOrders/ManageOrders";
+import TopHeader from "./Pages/Shared/Header/TopHeader/TopHeader";
+
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
+      <TopHeader></TopHeader>
         <Header></Header>
 
         <Routes>

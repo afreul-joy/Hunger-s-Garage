@@ -1,13 +1,66 @@
-.navbar-custom{
+.navigation{
+    box-shadow: 0 5px 10px gray;
+}
+
+.navmenu a{
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 19px;
+    color: #000;
+    font-weight: 500;
+    padding-bottom: 3px;
+}
+
+.navmenu .selected{
+    border-bottom: 3px solid #3498db;
+}
+
+.loginBtn{
+    background-color: #3498db;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.loginBtn:hover{
+    background-color: #1d7cbb;
+}
+
+.loginButton{
+    display: inline;
+}
+
+@media only screen and (max-width: 575px) {
+    .navmenu a{
+        display: block;
+        text-align: center;
+    }
+    .loginButton{
+        display: block;
+        text-align: center;
+        margin-top: 8px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* .navbar-custom{
     color: black;
     cursor: pointer;
     caret-color: transparent;
     margin-top: 2%;
-}
+} */
 /* .navbar-custom:hover, .navbar-custom a:hover{
     color: #5c85df
 } */
-.dropdown-content{
+/* .dropdown-content{
     display: none;
     box-shadow: rgba(0,0,0,0.1) 2px 4px 8px;
     font-size: 18px;
@@ -28,4 +81,4 @@
 .dropdown-content a:hover{
     background-color: red !important;
     color: white !important;
-}
+} */
