@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./Pages/Shared/Header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
-import About from "./Pages/About/About";
+
 import Home from "./Pages/Home/Home";
 import Error from "./Pages/Error/Error";
 import Login from "./Pages/Authentication/Login/Login";
@@ -24,6 +24,7 @@ import AddMeals from "./Pages/Dashboard/AddMeals/AddMeals";
 import DeleteMeal from "./Pages/Dashboard/DeleteMeal/DeleteMeal";
 import ManageOrders from "./Pages/Dashboard/ManageOrders/ManageOrders";
 import TopHeader from "./Pages/Shared/Header/TopHeader/TopHeader";
+import Services from "./Pages/Service/Service";
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
         <Header></Header>
 
         <Routes>
-          <Route path="/about" element={<About></About>}></Route>
+          <Route path="/service" element={<Services></Services>}></Route>
 
           <Route path="/login" element={<Login></Login>}></Route>
 
@@ -58,9 +59,9 @@ function App() {
 
           <Route path="/" element={<Home></Home>}>
             <Route path="/" element={<Lunch />} />
-            <Route path="/allMeals/breakfast" element={<Breakfast />} />
-            <Route path="/allMeals/lunch" element={<Lunch />} />
-            <Route path="/allMeals/dinner" element={<Dinner />} />
+            <Route path="/breakfast" element={<Breakfast />} />
+            <Route path="/lunch" element={<Lunch />} />
+            <Route path="/dinner" element={<Dinner />} />
           </Route>
 
           <Route path="*" element={<Error></Error>}></Route>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Row, Spinner } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Row, Spinner } from "react-bootstrap";
+import ProductCard from "../../../Shared/ProductCard/ProductCard";
 
-const Dinner = () => {
+const Lunch = () => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
     const url = `/dinner.json`;
@@ -13,30 +13,30 @@ const Dinner = () => {
   }, []);
 
   return (
-    <Container>
-      {foods.length === 0 ? (
-        <Spinner animation="border" variant="primary" />
-      ) : (
-        <Row lg={3} xs={1} className="g-4 ">
-          {foods.map((food) => (
-            <Col key={food.name}>
-              <Card className="mb-2">
-                <Card.Img className="w-50 mx-auto" src={food.img} alt="" />
-                <Card.Title>{food.name}</Card.Title>
-                <small>{food.details.slice(0, 40)}</small>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      )}
-      <Link to={`/meals`} style={{ textDecoration: "none" }}>
-        {" "}
-        <Button variant="secondary" className="mt-2 mb-4">
-          Wanna Know More?
-        </Button>
-      </Link>
-    </Container>
+    <div className="my-2">
+      <Container>
+        <h4 className="text-center my-2 fw-bold" style={{ color: "#34495e" }}>
+          Our Dinner Items
+        </h4>
+        {!foods.length ? (
+          <div className="text-center">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
+        ) : (
+          <Row xs={1} sm={1} md={2} lg={3} className="g-4">
+            {foods?.map((food) => (
+              <ProductCard key={food.id} food={food} />
+            ))}
+          </Row>
+        )}
+      </Container> 
+    </div>
   );
 };
 
-export default Dinner;
+export default Lunch;
+
+
+

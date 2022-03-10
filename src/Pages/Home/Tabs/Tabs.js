@@ -8,9 +8,9 @@ const Tabs = () => {
         <div>
             <h2 className="fdnav-h">Choose Your Favorite Food For !</h2>
             <div className="foodNav my-2 mb-3 mx-auto">
-            <NavLink to="/allMeals/breakfast" className={(selected) => (selected.isActive ? 'selected' : '')}>Breakfast</NavLink>
+            <NavLink to="/breakfast" className={(selected) => (selected.isActive ? 'selected' : '')}>Breakfast</NavLink>
             <NavLink to="/"  className={(selected) => (selected.isActive ? 'selected' : '')}>Lunch</NavLink>
-            <NavLink to="/allMeals/dinner" className={(selected) => (selected.isActive ? 'selected' : '')} >Dinner</NavLink>
+            <NavLink to="/dinner" className={(selected) => (selected.isActive ? 'selected' : '')} >Dinner</NavLink>
         </div>
             <Outlet />
         </div>
