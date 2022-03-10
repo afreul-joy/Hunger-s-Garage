@@ -1,10 +1,29 @@
+.foodNav  {
+  text-decoration: none;
+  margin-right: 50px;
+  color:black;
+  display:flex;
+  flex-direction: row;
+  align-content: space-around;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .foodNav a {
   text-decoration: none;
   margin-right: 50px;
-  color:black
+  color:black;
+ 
 }
 .foodNav .selected {
   font-weight: bold;
   color: red;
   border-bottom: 3px solid red;
+}
+.fdnav-h{
+  color:#44607C;
+  font-weight: bold;
+  text-align: center;
+  margin:10px 0px 10px 0px
 }
