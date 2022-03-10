@@ -1,8 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./banner.css";
-
-
 import Fade from 'react-reveal/Fade';
 
 const Banner = () => {
