@@ -8,30 +8,30 @@ const Service = () => {
     {
       id: 1,
       name: "Restaurant ",
-      icon: <i className="fas fa-car-battery"></i>,
+      icon: <i className='fas fa-pizza-slice'></i>,
       description:
-        "Car Repair & Services 7 Days Service Warranty. On Time Work Completion Skilled & Reliable.",
+        "Food & Services We Provide, We Are The Best Because On Time Work Completion Skilled & Reliable.",
     },
     {
       id: 2,
-      name: "Oil Change",
-      icon: <i className="fas fa-car-side"></i>,
+      name: "Delicious Food",
+      icon: <i className="fas fa-hamburger"></i>,
       description:
-        "Car Repair & Services 7 Days Service Warranty. On Time Work Completion Skilled & Reliable.",
+      "Food & Services We Provide, We Are The Best Because On Time Work Completion Skilled & Reliable.",
     },
     {
       id: 3,
-      name: "Air Conditioning",
-      icon: <i className="fas fa-fan"></i>,
+      name: "Cool Decoration",
+      icon: <i className="fas fa-house-user"></i>,
       description:
-        "Car Repair & Services 7 Days Service Warranty. On Time Work Completion Skilled & Reliable.",
+      "Food & Services We Provide, We Are The Best Because On Time Work Completion Skilled & Reliable.",
     },
     {
       id: 4,
-      name: "Auto Electric",
-      icon: <i className="fas fa-bolt"></i>,
+      name: "Quality Food",
+      icon: <i className="	fas fa-glass-cheers"></i>,
       description:
-        "Car Repair & Services · 7 Days Service Warranty · On Time Work Completion Skilled & Reliable.",
+      "Food & Services We Provide, We Are The Best Because On Time Work Completion Skilled & Reliable.",
     },
   ];
 
@@ -43,8 +43,8 @@ const Service = () => {
             <div className="service-intro">
               <h2 className="fw-bold fs-1">Our Services</h2>
               <p>
-                Find Car Service In Usa. Unlimited Access. 100% Secure. Always
-                Facts. Privacy Friendly. The Best Resources.
+                Find Our Service In Europe. Unlimited Order. 100% Healthy. Always
+                Facts. Better Quality. The Best Resources.
               </p>
             </div>
             <Row xs={2} md={2} lg={2}>
