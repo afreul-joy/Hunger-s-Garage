@@ -66,7 +66,7 @@ const Service = () => {
             </Row>
           </Col>
           <Col xs={12} md={4} lg={4}>
-            <div className="service-image">
+            <div className="service-image mb-2">
               <img className="image" src={serviceImg} alt="service" />  
             </div>
           </Col>

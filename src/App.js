@@ -13,7 +13,6 @@ import BuyNow from "./Pages/Meals/BuyNow/BuyNow";
 import MyOrder from "./Pages/MyOrder/MyOrder";
 import Edit from "./Pages/MyOrder/Edit/Edit";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import Review from "./Pages/Dashboard/Review/Review";
 import DashboardHome from "./Pages/Dashboard/DashboardHome/DashboardHome";
 import MakeAnAdmin from "./Pages/Dashboard/MakeAnAdmin/MakeAnAdmin";
 import Footer from "./Pages/Shared/Footer/Footer";
@@ -25,6 +24,7 @@ import DeleteMeal from "./Pages/Dashboard/DeleteMeal/DeleteMeal";
 import ManageOrders from "./Pages/Dashboard/ManageOrders/ManageOrders";
 import TopHeader from "./Pages/Shared/Header/TopHeader/TopHeader";
 import Services from "./Pages/Service/Service";
+import ReviewDashboard from "./Pages/Dashboard/ReviewDashboard/ReviewDashboard";
 
 
 function App() {
@@ -45,7 +45,7 @@ function App() {
 
           <Route path="/dashboard" element={<Dashboard></Dashboard>}>
             <Route path="/dashboard" element={<DashboardHome />} />
-            <Route path="/dashboard/review" element={<Review />} />
+            <Route path="/dashboard/review" element={<ReviewDashboard />} />
             <Route path="/dashboard/makeAdmin" element={<MakeAnAdmin />} />
             <Route path="/dashboard/myOrders" element={<MyOrder />} />
             <Route path="/dashboard/addMeals" element={<AddMeals />} />
