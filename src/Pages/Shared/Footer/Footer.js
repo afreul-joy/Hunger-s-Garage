@@ -1,136 +1,51 @@
-import React from "react";
-import "./Footer.css";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import './Footer.css'
+import logo from '../../../Images/Header/brand.png'
 
 const Footer = () => {
-  return (
-    <>
-      <div className="footer-div">
-        <div className="footer container pt-5">
-          <div className="row">
-            <div className="col-lg-3 col-12">
-              <h4>
-                <h4>About Us</h4> <hr />
-              </h4>
-              <p className="footer-text">
-                We are committed to providing the most food
-                services from listing to close. We have exceptional results
-                which are confirmed by the number of clients we serve.
-              </p>
-            </div>
-            <div className="col-lg-3 col-12">
-              <h4>
-                More <hr />
-              </h4>
-              <ul>
-                <li>About</li>
-                <li>Site Map</li>
-                <li>Support Center</li>
-                <li>Terms Conditions</li>
-              </ul>
-            </div>
 
-            <div className="col-lg-3 col-12">
-              <h4>Hunger's Garage</h4> <hr />
-              <h6>
-                <i className="fas fa-map-marker-alt footer-icon"></i> 25 Union
-                St, Boston, MA 02113
-              </h6>
-              <h6>
-                <i className="fas fa-phone-volume footer-icon"></i> Office (305)
-                352-4765
-              </h6>
-              <h6>
-                <i className="fas fa-fax footer-icon"></i> Fax (305) 361-6577
-              </h6>
-              <h6>
-                <i className="fas fa-envelope footer-icon"></i>{" "}
-                office@mysite.com
-              </h6>
-            </div>
+    const [product, setProduct] = useState([]);
 
-            <div className="col-lg-3 col-12">
-              <h4>
-                Quick links <hr />
-              </h4>
-              <ul>
-                <li>
-                  <Link
-                    style={{
-                      paddingLeft: 13,
-                      textDecoration: "none",
-                      color: "whitesmoke",
-                    }}
-                    to="/contact"
-                  >
-                    {" "}
-                    Home
-                  </Link>
-                </li>
+    useEffect(() => {
+        fetch('/lunch.json')
+            .then(res => res.json())
+        .then(data => setProduct(data))
+    }, [])
 
-                <li>
-                  {" "}
-                  <Link
-                    style={{
-                      paddingLeft: 13,
-                      textDecoration: "none",
-                      color: "whitesmoke",
-                    }}
-                    to="/properties"
-                  >
-                    Meals
-                  </Link>
-                </li>
-                <li>
-                  {" "}
-                  <Link
-                    style={{
-                      paddingLeft: 13,
-                      textDecoration: "none",
-                      color: "whitesmoke",
-                    }}
-                    to="/properties"
-                  >
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    style={{
-                      paddingLeft: 13,
-                      textDecoration: "none",
-                      color: "whitesmoke",
-                    }}
-                    to="/blogs"
-                  >
-                    Our Blog
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            
-          </div>
+    return (
+        <div className="footer-area">
+            <Container>
+                <Row className="d-flex align-items-center">
+                    <Col xs={12} md={6} lg={4}>
+                        <img width="80px" src={logo} alt="logo" />
+                        <div className="w-75 mt-3">
+                        <p>Find Restaurant In Germany. Large Selection. Always Open. Cheap Prices. Full Offer. Save Online. Compare Online. Simple Search. The Best Price. Compare Simply.Healthy Food</p>
+                        </div>
+                    </Col>
+                    <Col xs={12} md={6} lg={4}>
+                        <h4>Quick Links</h4>
+                        <p>Home</p>
+                        <p>About</p>
+                        <p>Explore</p>
+                        <p>Dashboard</p>
+                    </Col>
+                    <Col xs={12} md={6} lg={4}>
+                        <h4>Top Food: </h4>
+                        <Row xs={4} md={4} lg={4} className="g-3">
+                            {
+                                product?.map(food => <Col key={food._id}>
+                                    <img width="100%" src={food?.img} alt="" />
+                                </Col>)
+                            }
+                        </Row>
+                    </Col>
+                </Row>
+                <hr />
+                <em><p className="text-center text-italic">copyright &copy; reserved Hunger's Garage Ltd.</p></em>
+            </Container>
         </div>
-        <div className="d-flex justify-content-center py-3">
-          <a href="/#" target="_blank">
-            <i className="fab fa-facebook-square footer-icon"></i>
-          </a>
-          <a href="/#" target="_blank">
-            <i className="fab fa-twitter-square footer-icon"></i>
-          </a>
-          <a href="/#" target="_blank">
-            <i className="fab fa-instagram footer-icon"></i>
-          </a>
-          <a href="/#" target="_blank">
-            <i className="fab fa-linkedin footer-icon"></i>
-          </a>
-        </div>
-        <hr />
-        <h6 className="text-center">&copy; Copyright Reserved</h6>
-      </div>
-    </>
-  );
+    );
 };
 
 export default Footer;
