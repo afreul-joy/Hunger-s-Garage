@@ -1,17 +1,22 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "./Review.css";
+// Import Swiper styles
+import 'swiper/css';
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 // import required modules
 import { FreeMode, Pagination } from "swiper";
 
-const Review = () => {
+const Review = (props) => {
+  const { name, img, des } = props?.review||{}
+  console.log("Reviews bro",props)
+
     return (
         <>
+         
         <Swiper
           slidesPerView={2}
           spaceBetween={50}
@@ -23,12 +28,19 @@ const Review = () => {
           className="mySwiper"
         >
            <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+           <>
+          <img src={img} alt=""  width="80px"height="80px"className="rounded-circle" />
+          {/* <h5 style={{ color: "#3498db", fontWeight: 600 }}>{name}</h5>
+            <div style={{ height: "150px" }}>
+              <p>{des}</p>
+            </div> */}
+          </>
         </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
+      
+
+
+
+        {/* <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
         </SwiperSlide>
         <SwiperSlide>
@@ -48,7 +60,7 @@ const Review = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
+        </SwiperSlide> */}
         </Swiper>
       </>
     );

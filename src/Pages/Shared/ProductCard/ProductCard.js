@@ -6,7 +6,7 @@ import './ProductCard.css'
 
 const ProductCard =({ food }) => {
     const {_id, name, img, details, price } = food;
-console.log(food);
+// console.log(food);
     return  (
         <Zoom top>
           <Col>

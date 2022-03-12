@@ -14,16 +14,8 @@ hr{
 
 @media only screen and (max-width: 575px) {
   .footer-area{
-      background-size: cover;
-      padding-left: 10px;
+       background-size: 100% 100%;
+      background-attachment: unset;
   }
-  .footer-area{
-    background-image: url('../../../Images/Footer/ft.jpg');
-    background-size: 100% 100%;
-    padding: 50px 0;
-    background-repeat: no-repeat;
-    background-color: rgba(25, 26, 26, 0.781);
-    background-blend-mode: darken, luminosity;
-    color: #fff;
-  }
+  
 }

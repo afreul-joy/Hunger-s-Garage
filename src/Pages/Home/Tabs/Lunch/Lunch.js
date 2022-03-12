@@ -6,7 +6,6 @@ const Lunch = () => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
     const url = `/lunch.json`;
-    console.log(url);
     fetch(url)
       .then((res) => res.json())
       .then((data) => setFoods(data));

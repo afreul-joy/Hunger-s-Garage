@@ -6,7 +6,7 @@ import useAuth from "../../../hooks/useAuth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
-// import "./BuyNow.css";
+import "./ReviewDashboard.css";
 
 const ReviewDashboard = () => {
   const [meal, setMeal] = useState({});
@@ -17,9 +17,6 @@ const ReviewDashboard = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data, e) => {
-    // data.status = "Pending";
-    // data.img=meal.img;
-    // data.productName=meal.name
     console.log(data);
     // e.preventDefault();
 
@@ -43,12 +40,14 @@ const ReviewDashboard = () => {
 
   return (
     <div>
-      <h2 className="text-success my-2">Please Review </h2>
+                <h2 className="text-center my-3 fw-bold" style={{ color: "#3498db" }}>
+            Customer Review
+          </h2>
       <Container>
       
-          <div className="col-lg-6  col-md-12 col-12 mx-auto">
+          <div className=" mx-auto">
             
-            <div className="d-flex justify-content-center align-items-center form-style">
+            <div className="form-style">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                   defaultValue={user.displayName}
@@ -71,7 +70,7 @@ const ReviewDashboard = () => {
                 <textarea {...register("description", {  max: 25, min: 20, maxLength: 100})} />
 
                 <input
-                  className="signBtn"
+                  className="loginBtn mt-2"
                   type="submit"
                   value="Send Review"
                 />
