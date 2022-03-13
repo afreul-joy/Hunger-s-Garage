@@ -21,14 +21,14 @@ const ReviewDashboard = () => {
     e.preventDefault();
 
     // Send data server POST API
-    fetch("http://localhost:5000/review", {
+    fetch("https://hungers-garage.herokuapp.com/review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         // if (data.insertedId) {
         //   toast.success("Order added successfully!", {
         //     position: "top-center",
@@ -41,44 +41,41 @@ const ReviewDashboard = () => {
 
   return (
     <div>
-                <h2 className="text-center my-3 fw-bold" style={{ color: "#3498db" }}>
-            Customer Review
-          </h2>
+      <h2 className="text-center my-3 fw-bold" style={{ color: "#3498db" }}>
+        Customer Review
+      </h2>
       <Container>
-      
-          <div className=" mx-auto">
-            
-            <div className="form-style">
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                  defaultValue={user.displayName}
-                  {...register("name")}
-                  required
-                />
-                <input
-                  type="text"
-                  placeholder="Rating"
-                  {...register("rating")}
-                  required
-                />
-                <input
-                  type="text"
-                  placeholder="Img URL"
-                  {...register("img")}
-                  required
-                />
-                
-                <textarea {...register("des")} />
+        <div className=" mx-auto">
+          <div className="form-style">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                defaultValue={user.displayName}
+                {...register("name")}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Rating"
+                {...register("rating")}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Img URL"
+                {...register("img")}
+                required
+              />
 
-                <input
-                  className="loginBtn mt-2"
-                  type="submit"
-                  value="Send Review"
-                />
-              </form>
-            </div>
+              <textarea {...register("des")} />
+
+              <input
+                className="loginBtn mt-2"
+                type="submit"
+                value="Send Review"
+              />
+            </form>
           </div>
-       
+        </div>
       </Container>
     </div>
   );

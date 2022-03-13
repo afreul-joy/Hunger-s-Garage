@@ -27,7 +27,7 @@ const DeleteMeal = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
         {
-          const url = `http://localhost:5000/meals/${id}`;
+          const url = `https://hungers-garage.herokuapp.com/meals/${id}`;
           fetch(url, {
             method: "DELETE",
           })

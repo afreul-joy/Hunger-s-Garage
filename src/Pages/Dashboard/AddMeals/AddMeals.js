@@ -22,7 +22,7 @@ const BuyNow = () => {
     e.preventDefault();
     console.log(addData);
     // Send data server POST API
-    fetch("http://localhost:5000/addMeals", {
+    fetch("https://hungers-garage.herokuapp.com/addMeals", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(addData),

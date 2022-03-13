@@ -9,7 +9,7 @@ const ManageOrders = () => {
   const { user } = useAuth();
   console.log(user.email);
   useEffect(() => {
-    const url = `http://localhost:5000/allOrders`;
+    const url = `https://hungers-garage.herokuapp.com/allOrders`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));
@@ -45,7 +45,7 @@ const ManageOrders = () => {
   };
   const shippedOrder = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/allOrders/${id}`, {
+    fetch(`https://hungers-garage.herokuapp.com/allOrders/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -88,13 +88,13 @@ const ManageOrders = () => {
               <td>{myOrder?.productName}</td>
               <td>{myOrder?.name}</td>
               <td>{myOrder?.email}</td>
-              
+
               <td>
                 <button
                   onClick={() => shippedOrder(myOrder._id)}
                   className="btn btn-primary btn-sm me-3"
                 >
-                 {myOrder?.status}
+                  {myOrder?.status}
                 </button>
               </td>
 

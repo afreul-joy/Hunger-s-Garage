@@ -26,13 +26,13 @@ const BuyNow = () => {
 
   const onSubmit = (data, e) => {
     data.status = "Pending";
-    data.img=meal.img;
-    data.productName=meal.name
+    data.img = meal.img;
+    data.productName = meal.name;
     console.log(data);
     // e.preventDefault();
 
     // Send data server POST API
-    fetch("http://localhost:5000/purchase", {
+    fetch("https://hungers-garage.herokuapp.com/purchase", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -79,7 +79,6 @@ const BuyNow = () => {
                   {...register("email")}
                   required
                 />
-            
 
                 <input type="date" {...register("date")} required />
                 <input
@@ -88,7 +87,7 @@ const BuyNow = () => {
                   {...register("address")}
                   required
                 />
-                    <input
+                <input
                   type="text"
                   placeholder="Phone"
                   {...register("contact")}
