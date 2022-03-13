@@ -6,7 +6,6 @@ import Carousel from 'react-elastic-carousel'
 
 const ReviewData = () => {
     const [review, setReviews] = useState([]);
-
     const breakPoints = [
         { width: 1, itemsToShow: 1 },
         { width: 550, itemsToShow: 2 },
@@ -20,9 +19,9 @@ const ReviewData = () => {
         .then(data => setReviews(data))
     }, [])
     return (
-        <div className="my-5">
+        <div className="my-4">
         <Container>
-        <h2 className="text-center mb-4 fw-bold" style={{color: "#34495e"}}>Customer Reviews!</h2>
+        <h2 className="text-center mb-2 fw-bold" style={{color: "#34495e"}}>Customer Reviews!</h2>
             <Row  className="g-4 mx-2">
             <Carousel className="reviewData" itemPadding={[10, 50]} breakPoints={breakPoints}>
                 {

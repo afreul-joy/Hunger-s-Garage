@@ -5,7 +5,3 @@
     align-items: center;
     flex-wrap: nowrap;
 }
-/* add custom outline on focused items */
-.eaptOe  {
-    background-color: #1d7cbb;
-}
