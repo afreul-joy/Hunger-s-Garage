@@ -5,7 +5,7 @@ import ProductCard from "../../../Shared/ProductCard/ProductCard";
 const Lunch = () => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
-    const url = `/lunch.json`;
+    const url = `https://hungers-garage.herokuapp.com/meals`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setFoods(data));
@@ -25,7 +25,7 @@ const Lunch = () => {
           </div>
         ) : (
           <Row xs={1} sm={1} md={2} lg={3} className="g-4">
-            {foods?.map((food) => (
+            {foods?.slice(6, 12).map((food) => (
               <ProductCard key={food.id} food={food} />
             ))}
           </Row>

@@ -1,15 +1,15 @@
-import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { Card, Container, Form, Row } from "react-bootstrap";
+import {Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import "./BuyNow.css";
 
 const BuyNow = () => {
-  const [meal, setMeal] = useState({});
+  const [product, setProduct] = useState({});
   const { id } = useParams();
   const { user } = useAuth();
 
@@ -18,7 +18,7 @@ const BuyNow = () => {
     const url = `https://hungers-garage.herokuapp.com/meals/${id}`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setMeal(data));
+      .then((data) => setProduct(data));
   }, [id]);
 
   //-----------form method --------------
@@ -26,8 +26,8 @@ const BuyNow = () => {
 
   const onSubmit = (data, e) => {
     data.status = "Pending";
-    data.img = meal.img;
-    data.productName = meal.name;
+    data.img = product.img;
+    data.productName = product.name;
     console.log(data);
     // e.preventDefault();
 
@@ -51,58 +51,73 @@ const BuyNow = () => {
 
   return (
     <div>
-      <h2 className="text-success my-2">Please Order </h2>
+    <div className="place-banner">
+      <h5 className="mb-2" > “Food is for eating, and good food is to be enjoyed… <br /> We think food is, actually, very beautiful in itself.”</h5>
+      <Link className="link-style" to="/">
+        Home
+      </Link>
+      <Link className="link-style" to="/meals">
+        All Foods
+      </Link>
+    </div>
+    <div className="place-area">
       <Container>
-        <Row>
-          <div className="col-lg-6">
-            <Card className="mb-2">
-              <Card.Img
-                className="w-50 mx-auto img-fluid"
-                src={meal.img}
-                alt=""
-              />
-              <Card.Title>{meal.name}</Card.Title>
-              <small>{meal.details}</small> <br />
-            </Card>
-          </div>
-          <div className="col-lg-6">
-            <h4 className="text-info mb-3">Order Requirement</h4>
-            <div className="d-flex justify-content-center align-items-center form-style">
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                  defaultValue={user.displayName}
-                  {...register("name")}
-                  required
+        <Row className="mb-5 mt-3">
+          <Col xs={12} md={6} lg={6}>
+            <div className="detail-area">
+              <div className="text-center">
+                <img
+                  style={{ width: "250px", borderRadius: "20px" }}
+                  src={product.img}
+                  alt=""
                 />
-                <input
-                  defaultValue={user.email}
-                  {...register("email")}
-                  required
-                />
-
-                <input type="date" {...register("date")} required />
-                <input
-                  type="text"
-                  placeholder="Address"
-                  {...register("address")}
-                  required
-                />
-                <input
-                  type="text"
-                  placeholder="Phone"
-                  {...register("contact")}
-                  required
-                />
-                <input
-                  className="signBtn"
-                  type="submit"
-                  value="Submit & Billing"
-                />
-              </form>
+              </div>
+              <div>
+                <h3
+                  className="text-center mt-2 fw-bold"
+                  style={{ color: "#3498db" }}
+                >
+                  {product.name}
+                </h3>
+                <h4 className="text-center">Price: {product.price}</h4>
+                <p>{product.description}</p>
+              </div>
             </div>
-          </div>
+          </Col>
+          <Col xs={12} md={6} lg={6} className="mt-4">
+            <h2 className="text-center fw-bold" style={{ color: "#3498db" }}>
+              Place Your Order!
+            </h2>
+            <form className="form" onSubmit={handleSubmit(onSubmit)}>
+              <input
+                defaultValue={user.displayName}
+                {...register("name")}
+                required
+              />
+              <input
+                defaultValue={user.email}
+                {...register("email")}
+                required
+              />
+              <input type="date" {...register("date")} required />
+              <input
+                type="text"
+                {...register("address")}
+                placeholder="Address"
+                required
+              />
+              <input
+                type="number"
+                {...register("phone")}
+                placeholder="Phone"
+                required
+              />
+              <input className="loginBtn" type="submit" value="Submit & Billing" />
+            </form>
+          </Col>
         </Row>
       </Container>
+    </div>
     </div>
   );
 };
