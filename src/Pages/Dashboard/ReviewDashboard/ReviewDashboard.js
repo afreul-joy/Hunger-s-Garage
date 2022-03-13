@@ -18,24 +18,25 @@ const ReviewDashboard = () => {
 
   const onSubmit = (data, e) => {
     console.log(data);
-    // e.preventDefault();
+    e.preventDefault();
 
     // Send data server POST API
-    // fetch("http://localhost:5000/purchase", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.insertedId) {
-    //       toast.success("Order added successfully!", {
-    //         position: "top-center",
-    //         theme: "colored",
-    //       });
-    //       e.target.reset();
-    //     }
-    //   });
+    fetch("http://localhost:5000/review", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        // if (data.insertedId) {
+        //   toast.success("Order added successfully!", {
+        //     position: "top-center",
+        //     theme: "colored",
+        //   });
+        //   e.target.reset();
+        // }
+      });
   };
 
   return (
@@ -52,7 +53,7 @@ const ReviewDashboard = () => {
                 <input
                   defaultValue={user.displayName}
                   {...register("name")}
-                  disabled
+                  required
                 />
                 <input
                   type="text"
@@ -67,7 +68,7 @@ const ReviewDashboard = () => {
                   required
                 />
                 
-                <textarea {...register("description", {  max: 25, min: 20, maxLength: 100})} />
+                <textarea {...register("des")} />
 
                 <input
                   className="loginBtn mt-2"
