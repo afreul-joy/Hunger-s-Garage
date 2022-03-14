@@ -96,10 +96,7 @@ const Dashboard = () => {
                 </>
               )}
               <br />
-              <p>{user.displayName}</p>
-              <hr />
-              <p>{user.email}</p> Admin
-              <hr />
+              <p>{user.email}</p>
             </ul>
           </div>
         </div>
