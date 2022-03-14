@@ -30,7 +30,7 @@ const Lunch = () => {
             ))}
           </Row>
         )}
-      </Container> 
+      </Container>
     </div>
   );
 };

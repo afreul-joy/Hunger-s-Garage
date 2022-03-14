@@ -2,7 +2,6 @@ import "./App.css";
 import Header from "./Pages/Shared/Header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
-
 import Home from "./Pages/Home/Home";
 import Error from "./Pages/Error/Error";
 import Login from "./Pages/Authentication/Login/Login";
@@ -26,13 +25,11 @@ import TopHeader from "./Pages/Shared/Header/TopHeader/TopHeader";
 import Services from "./Pages/Service/Service";
 import ReviewDashboard from "./Pages/Dashboard/ReviewDashboard/ReviewDashboard";
 
-
-
 function App() {
   return (
     <div className="App">
       <AuthProvider>
-      <TopHeader></TopHeader>
+        <TopHeader></TopHeader>
         <Header></Header>
 
         <Routes>
