@@ -24,6 +24,7 @@ import ManageOrders from "./Pages/Dashboard/ManageOrders/ManageOrders";
 import TopHeader from "./Pages/Shared/Header/TopHeader/TopHeader";
 import Services from "./Pages/Service/Service";
 import ReviewDashboard from "./Pages/Dashboard/ReviewDashboard/ReviewDashboard";
+import PrivetRoute from "./Pages/Authentication/PrivetRoute/PrivetRoute"
 
 function App() {
   return (
@@ -53,7 +54,7 @@ function App() {
 
           <Route path="/myOrders/:id" element={<Edit></Edit>}></Route>
 
-          <Route path="/meals/:id" element={<BuyNow></BuyNow>}></Route>
+          <Route path="/meals/:id" element={ <><PrivetRoute><BuyNow></BuyNow></PrivetRoute> </> }></Route>
 
           <Route path="/" element={<Home></Home>}>
             <Route path="/" element={<Lunch />} />

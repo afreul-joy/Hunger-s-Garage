@@ -2,23 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Alert, Button, CircularProgress } from "@mui/material";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
   const { loginUser, user, signInUsingGoogle, authError, isLoading } =
     useAuth();
-  //------Privet Route & Navigate---------
-  // let location = useLocation();
-  // const navigate = useNavigate()
-  // const redirect_Url = location.state?.from || '/'
-  // console.log('came from',location.state?.from);
-
   //---------Google Login----------
   const handleGoogleSignIn = () => {
     signInUsingGoogle().then((result) => {
       console.log(result.user);
-      // navigate(redirect_Url)
     });
   };
 

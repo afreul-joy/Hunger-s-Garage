@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useEffect } from "react";
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import initializeFirebase from "../Pages/Authentication/Firebase/firebase.init";
 
 initializeFirebase();
@@ -19,6 +20,11 @@ const useFirebase = () => {
   const [authError, setAuthError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
+     //------Privet Route & Navigate---------
+     let location = useLocation();
+     const navigate = useNavigate()
+     const redirect_Url = location.state?.from || '/'
+     console.log('came from',location.state?.from);
 
   const auth = getAuth();
   //--------- Google SignIn------------
@@ -32,6 +38,8 @@ const useFirebase = () => {
         const user = result.user;
         // save user to Database
         saveUser(user.email, user.displayName, "PUT");
+
+        navigate(redirect_Url)
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -44,6 +52,7 @@ const useFirebase = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setAuthError("");
+        navigate(redirect_Url)
         // working with name
         const newUser = { email, displayName: name };
         setUser(newUser);
@@ -68,6 +77,7 @@ const useFirebase = () => {
       .then((userCredential) => {
         setAuthError("");
         console.log("hello");
+        navigate(redirect_Url)
       })
       .catch((error) => {
         setAuthError(error.message);
