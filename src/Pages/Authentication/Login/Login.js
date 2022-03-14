@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Alert, Button, CircularProgress } from "@mui/material";
+import { Alert, Box, Button, CircularProgress } from "@mui/material";
 import { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
+import "./Login.css";
 
 const Login = () => {
   const { loginUser, user, signInUsingGoogle, authError, isLoading } =
@@ -33,7 +34,10 @@ const Login = () => {
 
   return (
     <div className="my-5">
-      <h2 className="mb-2">Please Sign In</h2>
+      <h2 className="text-center mb-2 fw-bold" style={{ color: "#3498db" }}>
+        {" "}
+        Sign In
+      </h2>
       <div className="shadow px-2 col-md-6 mx-auto p-5 rounded-3">
         <form
           onSubmit={handleLogin}
@@ -64,20 +68,22 @@ const Login = () => {
         {isLoading && <CircularProgress />}
         {user?.email && <Alert severity="success">Login successfully</Alert>}
         {authError && <Alert severity="error">{authError}</Alert>}
-        <br />
-        <Button
-          onClick={handleGoogleSignIn}
-          variant="contained"
-          className="bg-danger"
-        >
-          <i className="fab fa-google me-2"></i> Google Sign In
-        </Button>
-        <br />
-        <br />
-        <p>
-          {" "}
-          New User? <Link to="/register">Sign Up now!</Link>{" "}
-        </p>
+
+        <Box className="item-center">
+          <Button
+            onClick={handleGoogleSignIn}
+            variant="contained"
+            className="bg-danger "
+          >
+            <i className="fab fa-google me-2"></i> Google Sign In
+          </Button>
+          <br />
+
+          <p>
+            {" "}
+            New User? <Link to="/register">Sign Up now!</Link>{" "}
+          </p>
+        </Box>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { Alert, AlertTitle, Button, CircularProgress } from "@mui/material";
+import { Alert, Button, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
@@ -31,8 +31,8 @@ const Register = () => {
 
   return (
     <div className="my-5">
-      <h2 className="mb-2">
-        <i className="fas fa-sign-up-alt"></i> Please Sign Up
+      <h2  className="text-center mb-2 fw-bold" style={{ color: "#3498db" }}>
+        <i className="fas fa-sign-up-alt"></i> Sign Up
       </h2>
       <div className="shadow px-2 col-md-6 mx-auto p-5 rounded-3">
         {!isLoading && (
@@ -84,7 +84,7 @@ const Register = () => {
           <Alert severity="success">User created successfully</Alert>
         )}
         {authError && <Alert severity="error">{authError}</Alert>}
-        <p>
+        <p className="text-center ">
           {" "}
           Already Registered? <Link to="/login">Sign In now!</Link>
         </p>

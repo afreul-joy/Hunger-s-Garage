@@ -8,7 +8,7 @@ const Footer = () => {
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
-        fetch('/lunch.json')
+        fetch('https://hungers-garage.herokuapp.com/meals')
             .then(res => res.json())
         .then(data => setProduct(data))
     }, [])
@@ -34,7 +34,7 @@ const Footer = () => {
                         <h4>Top Food: </h4>
                         <Row xs={4} md={4} lg={4} className="g-3">
                             {
-                                product?.map(food => <Col key={food._id}>
+                                product?.slice(0, 8).map(food => <Col key={food._id}>
                                     <img width="100%" src={food?.img} alt="" />
                                 </Col>)
                             }
