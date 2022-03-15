@@ -10,7 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { useEffect } from "react";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {  useLocation, useNavigate } from 'react-router-dom';
 import initializeFirebase from "../Pages/Authentication/Firebase/firebase.init";
 
 initializeFirebase();

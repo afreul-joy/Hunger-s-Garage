@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 
 const ManageOrders = () => {
   const [orders, setOrders] = useState([]);
-  // console.log(myOrders);
-  const { user } = useAuth();
+
+  const { user, admin } = useAuth();
   console.log(user.email);
   useEffect(() => {
     const url = `https://hungers-garage.herokuapp.com/allOrders`;
@@ -37,14 +38,15 @@ const ManageOrders = () => {
               if (data.deletedCount > 0) {
                 const remainingOrder = orders.filter((user) => user._id !== id);
                 setOrders(remainingOrder);
+               
               }
             });
         }
       }
     });
   };
-  const shippedOrder = (id) => {
-    console.log(id);
+  const approvedOrder = (id) => {
+    // console.log(id);
     fetch(`https://hungers-garage.herokuapp.com/allOrders/${id}`, {
       method: "PUT",
       headers: {
@@ -54,13 +56,17 @@ const ManageOrders = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          alert("Order Approved Successfully!", "", "success");
+          Swal.fire("Order Approved Successfully!", "", "success");
+          window.location.reload(false);
         }
       });
   };
   return (
     <Container>
-      <h1>Total Orders {orders?.length}</h1>
+         <h2 className="text-center my-3 fw-bold" style={{ color: "#34495e" }}>
+         Total Orders {orders?.length}
+        </h2>
+ 
       <Table striped bordered hover responsive>
         <thead>
           <tr>
@@ -73,35 +79,48 @@ const ManageOrders = () => {
             <th>Action</th>
           </tr>
         </thead>
-        {orders?.map((myOrder, index) => (
+        {orders?.map((order, index) => (
           <tbody>
             <tr>
               <td>{index + 1}</td>
               <td>
                 <img
-                  src={myOrder?.img}
+                  src={order?.img}
                   className="img-fluid"
                   style={{ width: "60px" }}
                   alt=""
                 />
               </td>
-              <td>{myOrder?.productName}</td>
-              <td>{myOrder?.name}</td>
-              <td>{myOrder?.email}</td>
-
+              <td>{order?.productName}</td>
+              <td>{order?.name}</td>
+              <td>{order?.email}</td>
               <td>
-                <button
-                  onClick={() => shippedOrder(myOrder._id)}
-                  className="btn btn-primary btn-sm me-3"
-                >
-                  {myOrder?.status}
-                </button>
+                {order.status === "Pending" && admin ? (
+                  <button
+                    onClick={() => approvedOrder(order._id)}
+                    className="btn btn-warning btn-sm me-3"
+                  >
+                    <i className="fas fa-check-circle"></i> Pending
+                  </button>
+                ) : (
+                  ""
+                )}
+                <p>
+                  {order.status === "Approved" ? (
+                    <span className="text-success fw-bold">
+                      {" "}
+                      {order.status}
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                </p>
               </td>
 
               <td>
                 <button
-                  onClick={() => handleDelete(myOrder?._id)}
-                  className="btn bg-warning m-2"
+                  onClick={() => handleDelete(order?._id)}
+                  className="btn bg-danger m-2"
                 >
                   {" "}
                   <i class="fas fa-trash"></i> Cancel

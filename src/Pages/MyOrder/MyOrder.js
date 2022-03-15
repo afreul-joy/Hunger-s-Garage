@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Container, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Row, Table } from "react-bootstrap";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import OrderCard from "../Shared/OrderCard/OrderCard";
 
 const MyOrder = () => {
   const [myOrders, setMyOrders] = useState([]);
@@ -16,7 +16,7 @@ const MyOrder = () => {
       .then((data) => setMyOrders(data));
   }, [user?.email]);
 
-  const handleDelete = (id) => {
+  const cancelOrder = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -48,55 +48,21 @@ const MyOrder = () => {
   };
 
   return (
-    <Container>
-      <h1>My Orders {myOrders?.length}</h1>
-      <Table striped bordered hover responsive>
-        <thead>
-          <tr>
-            <th>Order No</th>
-            <th>Image</th>
-            <th>Product Name</th>
-            <th>Status</th>
-            <th>Edit</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        {myOrders?.map((myOrder, index) => (
-          <tbody>
-            <tr>
-              <td>{index + 1}</td>
-              <td>
-                <img
-                  src={myOrder?.img}
-                  className="img-fluid"
-                  style={{ width: "60px" }}
-                  alt=""
-                />
-              </td>
-              <td>{myOrder?.productName}</td>
-              <td>{myOrder?.status}</td>
-              <td>
-                <Link to={`/myOrders/${myOrder._id}`}>
-                  <button className="btn bg-info m-2">
-                    {" "}
-                    <i class="fas fa-user-edit"></i> Edit
-                  </button>
-                </Link>
-              </td>
-              <td>
-                <button
-                  onClick={() => handleDelete(myOrder?._id)}
-                  className="btn bg-warning m-2"
-                >
-                  {" "}
-                  <i class="fas fa-trash"></i> Cancel
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        ))}
-      </Table>
-    </Container>
+    <div className="pt-4">
+      <div className="mt-1">
+        <Container>
+          <Row xs={1} sm={1} md={1} lg={2} className="g-5">
+            {myOrders?.map((order) => (
+              <OrderCard
+                key={order._id}
+                cancelOrder={cancelOrder}
+                order={order}
+              />
+            ))}
+          </Row>
+        </Container>
+      </div>
+    </div>
   );
 };
 

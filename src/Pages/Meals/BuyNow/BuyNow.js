@@ -7,12 +7,18 @@ import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./BuyNow.css";
+import {  useLocation, useNavigate } from 'react-router-dom';
 
 const BuyNow = () => {
   const [product, setProduct] = useState({});
   const { id } = useParams();
   const { user } = useAuth();
 
+   //------ Navigate---------
+  let location = useLocation();
+  const navigate = useNavigate()
+  const redirect_Url = location.state?.from || '/dashboard/myOrders'
+  
   //showing single details
   useEffect(() => {
     const url = `https://hungers-garage.herokuapp.com/meals/${id}`;
@@ -39,6 +45,7 @@ const BuyNow = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        navigate(redirect_Url)
         if (data.insertedId) {
           toast.success("Order added successfully!", {
             position: "top-center",
@@ -108,11 +115,12 @@ const BuyNow = () => {
               />
               <input
                 type="number"
-                {...register("phone")}
+                {...register("cell_phone")}
                 placeholder="Phone"
                 required
               />
               <input className="loginBtn" type="submit" value="Submit & Billing" />
+              <ToastContainer />
             </form>
           </Col>
         </Row>
