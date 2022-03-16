@@ -63,7 +63,7 @@ const ManageOrders = () => {
   };
   return (
     <Container>
-         <h2 className="text-center my-3 fw-bold" style={{ color: "#34495e" }}>
+         <h2 className="text-center my-3 fw-bold" style={{ color: "#3498db" }}>
          Total Orders {orders?.length}
         </h2>
  

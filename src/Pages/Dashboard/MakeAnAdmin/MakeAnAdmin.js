@@ -30,7 +30,7 @@ const MakeAnAdmin = () => {
   };
   return (
     <div>
-      <h2>Make an admin </h2> <br />
+      <h2 className="text-center my-3 fw-bold" style={{ color: "#3498db" }}>Make an admin </h2> <br />
       <form onSubmit={handleAdminSubmit}>
         <TextField
           id="standard-basic"

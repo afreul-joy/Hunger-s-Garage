@@ -45,7 +45,7 @@ const DeleteMeal = () => {
 
   return (
     <Container>
-      <h3 className="text-info my-3">Total Meals {foods.length}</h3>
+      <h3 className="text-center my-3 fw-bold" style={{ color: "#3498db" }}>Total Meals {foods.length}</h3>
       <Table striped bordered hover responsive>
         <thead>
           <tr>

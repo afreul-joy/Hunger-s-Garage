@@ -43,6 +43,7 @@ const useFirebase = () => {
       })
       .catch((error) => {
         setAuthError(error.message);
+        window.location.reload(false);
       })
       .finally(() => isLoading(false));
   };
@@ -67,6 +68,7 @@ const useFirebase = () => {
       })
       .catch((error) => {
         setAuthError(error.message);
+        window.location.reload(false);
       })
       .finally(() => isLoading(false));
   };
@@ -81,6 +83,7 @@ const useFirebase = () => {
       })
       .catch((error) => {
         setAuthError(error.message);
+        window.location.reload(false);
       })
       .finally(() => isLoading(false));
   };

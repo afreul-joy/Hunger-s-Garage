@@ -1,31 +1,25 @@
 import { Button } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { Card, Container, Form, Row } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Col, Container, Row } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import img from "../../../Images/AddMeals/addMeals.jpg";
+import './AddMeals.css'
+
 const BuyNow = () => {
-  //form method
-  const [addData, setAddData] = useState({});
+    //-----------form method --------------
+    const { register, handleSubmit } = useForm();
 
-  // handle onBlur
-  const handleOnBlur = (e) => {
-    const field = e.target.name;
-    const value = e.target.value;
-    const newLoginData = { ...addData };
-    newLoginData[field] = value;
-    // console.log(newLoginData);
-    setAddData(newLoginData);
-  };
 
-  const handleForm = (e) => {
-    e.preventDefault();
-    console.log(addData);
+
+  const onSubmit = (data,e) => {
+    console.log(data);
     // Send data server POST API
     fetch("https://hungers-garage.herokuapp.com/addMeals", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(addData),
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -41,60 +35,38 @@ const BuyNow = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-success my-2">Please Add Meals </h2>
+<div>
+      <h2 className="text-center my-3 fw-bold" style={{ color: "#3498db" }}>
+        Add Meals
+      </h2>
       <Container>
-        <Row>
-          <div className="col-lg-4">
-            <Card className="my-3">
-              <Card.Img className=" mx-auto img-fluid" src={img} alt="" />
-            </Card>
-          </div>
-          <div className="col-lg-8">
-            <form
-              onSubmit={handleForm}
-              className="col-md-8 d-flex flex-column gap-4 mx-auto mb-4"
-            >
+        <div className=" mx-auto">
+          <div className="form-style">
+            <form className="form" onSubmit={handleSubmit(onSubmit)}>
               <input
-                onBlur={handleOnBlur}
-                name="name"
-                className="form-control"
-                id=""
                 placeholder="Name"
+                {...register("name")}
                 required
               />
+               <input
+                type="text"
+                placeholder="Img URL"
+                {...register("img")}
+                required
+              />
+
+              <textarea {...register("details")} placeholder="Details"/>
               <input
                 type="text"
-                name="details"
-                onBlur={handleOnBlur}
-                className="form-control"
-                id=""
-                placeholder="Details"
+                {...register("price")}
+                placeholder="price"
                 required
               />
-              <input
-                type="url"
-                name="img"
-                onBlur={handleOnBlur}
-                className="form-control"
-                placeholder="URL"
-                required
-              />
-              <input
-                type="text"
-                name="price"
-                onBlur={handleOnBlur}
-                className="form-control"
-                placeholder="Price"
-                required
-              />
-              <Button type="submit" variant="contained">
-                <i className="fas fa-plus me-2"></i> Add Meals
-              </Button>
+              <input className="loginBtn" type="submit" value="Add Meal" />
               <ToastContainer />
-            </form>
+              </form>
           </div>
-        </Row>
+        </div>
       </Container>
     </div>
   );
