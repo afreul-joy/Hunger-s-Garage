@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Spinner } from "react-bootstrap";
 import ProductCard from "../Shared/ProductCard/ProductCard";
 import "./Meals.css";
-import GridLoader from "react-spinners/ClipLoader";
+import GridLoader from "react-spinners/GridLoader";
 
 const Meals = () => {
   const [foods, setFoods] = useState([]);
@@ -10,18 +10,16 @@ const Meals = () => {
   const [page, setPage] = useState(0);
   const size = 3;
 
-  // let [loading, setLoading] = useState(false);
-  // let [color, setColor] = useState("#ffffff");
+  let [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const url = `http://localhost:5000/meals?page=${page}&&size=${size}`;
+    setLoading(true);
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        // setLoading(true);
         setFoods(data.product);
-        // setLoading(false);
-
+        setLoading(false);
         const count = data.count;
         const pageNumber = Math.ceil(count / size);
         setPageCount(pageNumber);
@@ -35,11 +33,9 @@ const Meals = () => {
           Explore All Foods!
         </h2>
 
-        {!foods.length ? (
+        {!foods.length && loading ? (
           <div className="text-center">
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
+            <GridLoader color={"#3498db"} loading={loading} size={15} />
           </div>
         ) : (
           <Row xs={1} sm={1} md={2} lg={3} className="g-4">
