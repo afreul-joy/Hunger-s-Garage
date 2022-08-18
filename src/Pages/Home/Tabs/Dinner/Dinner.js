@@ -6,17 +6,16 @@ import GridLoader from "react-spinners/GridLoader";
 const Lunch = () => {
   const [foods, setFoods] = useState([]);
   let [loading, setLoading] = useState(false);
-  let [color, setColor] = useState("#ffffff");
 
   useEffect(() => {
     const url = `https://hungers-garage.herokuapp.com/meals`;
-    console.log(url);
+    setLoading(true);
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setLoading(true);
-        setFoods(data)
-        loading(false)
+        setFoods(data);                                                                     
+        loading(false);
       });
   }, []);
 
@@ -27,8 +26,10 @@ const Lunch = () => {
           Our Dinner Items
         </h4>
         {!foods.length && loading ? (
-          <GridLoader color={color} loading={loading}  size={150} />
-        ) : (
+          <div className="text-center">
+            <GridLoader color={"#3498db"} loading={loading} size={15} />
+          </div>
+        ) : (                                                                       
           <Row xs={1} sm={1} md={2} lg={3} className="g-4">
             {foods?.slice(14, 18).map((food) => (
               <ProductCard key={food.id} food={food} />
@@ -41,3 +42,4 @@ const Lunch = () => {
 };
 
 export default Lunch;
+                                                                                           
