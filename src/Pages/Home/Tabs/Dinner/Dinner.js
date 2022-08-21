@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Spinner } from "react-bootstrap";
+import { Container, Row, } from "react-bootstrap";
 import ProductCard from "../../../Shared/ProductCard/ProductCard";
 import GridLoader from "react-spinners/GridLoader";
 
@@ -22,9 +22,6 @@ const Lunch = () => {
   return (
     <div className="my-2">
       <Container>
-        <h4 className="text-center my-2 fw-bold" style={{ color: "#34495e" }}>
-          Our Dinner Items
-        </h4>
         {!foods.length && loading ? (
           <div className="text-center">
             <GridLoader color={"#3498db"} loading={loading} size={15} />

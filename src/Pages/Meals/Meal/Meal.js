@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
+import { Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Zoom from "react-reveal/Zoom";
 
 export default function Meal(props) {
   const { data } = props;
-  console.log(data);
+
   const [currentItems, setCurrentItems] = useState([]); // show in page
   const [pageCount, setPageCount] = useState(0); //
   const [itemOffset, setItemOffset] = useState(0); //index of the first item of currentPage
@@ -32,9 +35,23 @@ export default function Meal(props) {
           <Row xs={1} sm={1} md={2} lg={3} className="g-4">
             {currentItems.map((image) => {
               return (
-                <div>
-                  <img className="img-fluid" src={image.img} alt="" />
-                </div>
+                <Zoom top>
+                  <Col>
+                    <div className="single-products">
+                      <img width="100%" height="300px" src={image.img} alt="" />
+                      <div className="product-des">
+                        <h3>{image.name}</h3>
+                        <p>{image.details.slice(0, 80)}</p>
+                        <p className="price">{image.price}</p>
+                        <Link to={`/meals/${image._id}`}>
+                          <button className="regular-btn">
+                            Buy Now <i className="fas fa-arrow-right"></i>
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </Col>
+                </Zoom>
               );
             })}
           </Row>

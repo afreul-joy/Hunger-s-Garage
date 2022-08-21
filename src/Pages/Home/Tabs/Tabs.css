@@ -13,22 +13,24 @@
 .foodNav a {
   text-decoration: none;
   margin-right: 50px;
-  color:black;
+  color: #44607C;
  
 }
 .foodNav .selected {
   font-weight: bold;
-  color: red;
-  border-bottom: 3px solid red;
+  color: #44607C;
+  border-bottom: 3px solid #44607C;
+  font-size: large;
+  margin-bottom: ;
 }
 .fdnav-h{
-  color:#44607C;
-  font-weight: bold;
+  color:rgba(0, 0, 0, 0.797);
   text-align: center;
+}
+.fdnav-d {
   margin:10px 0px 10px 0px
 }
-
-@media only screen and (max-width: 575px) {
+/* @media only screen and (max-width: 575px) {
   .fdnav-h{
     color:#44607C;
     font-weight: bold;
@@ -37,4 +39,4 @@
     margin:10px 0px 10px 0px
   }
   
-}
+} */
