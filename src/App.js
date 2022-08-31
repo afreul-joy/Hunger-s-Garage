@@ -25,6 +25,7 @@ import TopHeader from "./Pages/Shared/Header/TopHeader/TopHeader";
 import Services from "./Pages/Service/Service";
 import ReviewDashboard from "./Pages/Dashboard/ReviewDashboard/ReviewDashboard";
 import PrivetRoute from "./Pages/Authentication/PrivetRoute/PrivetRoute"
+import Payment from "./Pages/Dashboard/Payment/Payment";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             <Route path="/dashboard/review" element={<ReviewDashboard />} />
             <Route path="/dashboard/makeAdmin" element={<MakeAnAdmin />} />
             <Route path="/dashboard/myOrders" element={<MyOrder />} />
+            <Route path="/dashboard/pay/:id" element={<Payment />} />
             <Route path="/dashboard/addMeals" element={<AddMeals />} />
             <Route path="/dashboard/deleteMeal" element={<DeleteMeal />} />
             <Route path="/dashboard/manageOrders" element={<ManageOrders />} />

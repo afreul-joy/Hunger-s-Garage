@@ -3,6 +3,7 @@ import React from "react";
 import { Col } from "react-bootstrap";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const OrderCard = ({ order, cancelOrder }) => {
   const { productName,name, img, cell_phone, address, date, status } = order;
@@ -31,12 +32,22 @@ const OrderCard = ({ order, cancelOrder }) => {
                     <span className="text-danger fw-bold"> {status}</span>
                   )}
                 </p>
-                {!admin&& <button
+                {!admin&& <> 
+                  <button
                       onClick={() => cancelOrder(order._id)}
                       className="btn btn-danger btn-sm"
                     >
                       <i className="fas fa-window-close"></i> Cancel
-                    </button>}
+                    </button>
+                    {order.payment ? (
+                  "paid"
+                ) : (
+                  <Link to={`/dashboard/pay/${order._id}`}>
+                    {" "}
+                    <button> Pay</button>{" "}
+                  </Link>
+                )}
+                </>}
               </div>
             </div>
            
