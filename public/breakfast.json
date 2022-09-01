@@ -2,61 +2,61 @@
     {
         "name": "Bagel and cream cheese",
         "details": "A bagel and cream cheese is a common food pairing in American cuisine, the cuisine of New York City, and American Jewish cuisine, consisting in its basic form of a sliced bagel spread with cream cheese.",
-        "price": "$ 10.99",
+        "price": 10.9,
         "img": "https://i.ibb.co/fC9g7Cp/breakfast1.png"
     },
     {
         "name": "Breakfast Sandwich",
         "details": "A breakfast sandwich is any sandwich filled with foods associated with the breakfast meal. Breakfast sandwiches-foodies at fast food restaurants and delicatessens or bought as fast, ready to heat and eat sandwiches from a store. Breakfast sandwiches are commonly made at home",
-        "price": "$ 7.99",
+        "price": 7.9,
         "img": "https://i.ibb.co/5G8s3qL/lunch4.png"
     },
     {
         "name": "Baked Chicken",
         "details": "A medium chicken breast will take 18 – 20 minutes to bake at 220C / 425F. Cooking it hard and fast at a high temperature is the secret to gorgeous cartelization and ultra juicy chicken ins_ide",
-        "price": "$ 11.99",
+        "price":6.8,
         "img": "https://i.postimg.cc/7L7xj0sH/breakfast3.png"
     },
     {
         "name": "Eggs Benedict",
         "details": "Eggs Benedict is a common American breakfast or brunch dish, consisting of two halves of an English muffin, each topped with Canadian bacon, a poached egg, and hollandaise sauce. It was popularized in New York City",
-        "price": "$ 8.99 ",
+        "price": 5.6,
         "img": "https://i.ibb.co/RvqgCKP/breakfast4.png"
     },
     {
         "name": "Tost Croissant Fried Egg",
         "details": "This Croissant Sandwich Recipe is a great way to start the day! It includes soft scrambled eggs, veggies, and cheddar cheese!",
-        "price": "$ 4.99",
+        "price": 3.9,
         "img": "https://i.ibb.co/jHJFf6M/breakfast5.png"
     },
     {
         "name": "Full Breakfast Fried Egg",
         "details": "Remember that in the kitchen the perfect is the enemy of the good (and also the good breakfast). I would happily serve these to a hungry crowd during brunch and even the most finicky of guests will be happy with them!",
-        "price": "$ 6.99",
+        "price": 6.2,
         "img": "https://i.ibb.co/hfDvR0z/breakfast6.png"
     },
     {
         "name": "Health meal plan",
         "details": "We have got hundreds of delicious recipes for every taste and dietary preference. Browse them all using our Search and Filter tools and choose the ones that are right for you.",
-        "price": "$ 20.99",
+        "price": 2.9,
         "img": "https://i.ibb.co/0hWdzSM/lunch1.png"
     },
     {
         "name": "Fried Chicken Bento",
         "details": "Cut chicken thigh to bite-size pieces and put in a plastic bag. Combine curry powder, sugar, grated garlic, grated ginger, soy sauce, and sake, and rub well. Marinate for 1 hour in the fr_idge.",
-        "price": "$ 17.99",
+      "price": 6.1,
         "img": "https://i.ibb.co/pfcB6vf/lunch2.png"
     },
     {
         "name": "Tarragon robert salmon",
         "details": "A medium chicken breast will take 18 – 20 minutes to bake at 220C / 425F. Cooking it hard and fast at a high temperature is the secret to gorgeous cartelization and ultra juicy chicken ins_ide",
-        "price": "$ 51.99",
+        "price": 3.9,
         "img": "https://i.ibb.co/hy0cpBK/lunch3.png"
     },
     {
         "name": "Indian lunch",
         "details": "Eggs Benedict is a common American breakfast or brunch dish, consisting of two halves of an English muffin, each topped with Canadian bacon, a poached egg, and hollandaise sauce. It was popularized in New York City",
-        "price": "$ 18.99 ",
+        "price": 10.9,
         "img": "https://i.ibb.co/5G8s3qL/lunch4.png"
     },
     {
@@ -68,7 +68,7 @@
     {
         "name": "Honey soy glazed",
         "details": "Remember that in the kitchen the perfect is the enemy of the good (and also the good breakfast). I would happily serve these to a hungry crowd during brunch and even the most finicky of guests will be happy with them!",
-        "price": "$ 16.99",
+        "price": 10.9,
         "img": "https://i.ibb.co/WywpryK/lunch6.png"
     },
     {
@@ -80,7 +80,7 @@
       {
         "name": "Lemony salmon piccata",
         "details": "Cut chicken thigh to bite-size pieces and put in a plastic bag. Combine curry powder, sugar, grated garlic, grated ginger, soy sauce, and sake, and rub well. Marinate for 1 hour in the fridge.",
-        "price": "$ 17.99",
+      "price": 10.9,
         "img": "https://i.postimg.cc/65cws47d/dinner2.png"
       },
       {
@@ -92,19 +92,19 @@
       {
         "name": "Garlic butter break ",
         "details": "Eggs Benedict is a common American breakfast or brunch dish, consisting of two halves of an English muffin, each topped with Canadian bacon, a poached egg, and hollandaise sauce. It was popularized in New York City",
-        "price": "$ 18.99 ",
+        "price": 4.9,
         "img": "https://i.ibb.co/4jpRTjN/dinner3.png"
       },
       {
         "name": "pork tenderloin",
         "details": "This Croissant Sandwich Recipe is a great way to start the day! It includes soft scrambled eggs, veggies, and cheddar cheese!",
-        "price": "$ 14.99",
+        "price": 3.19,
         "img": "https://i.ibb.co/w4bmWKC/dinner5.png"
       },
       {
         "name": "Backed chicken",
         "details": "Remember that in the kitchen the perfect is the enemy of the good (and also the good breakfast). I would happily serve these to a hungry crowd during brunch and even the most finicky of guests will be happy with them!",
-        "price": "$ 16.99",
+        "price": 5.9,
         "img": "https://i.ibb.co/RbM4nWY/dinner6.png"
       }
 ]

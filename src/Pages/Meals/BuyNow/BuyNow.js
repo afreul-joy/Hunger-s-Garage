@@ -34,6 +34,7 @@ const BuyNow = () => {
     data.status = "Pending";
     data.img = product.img;
     data.productName = product.name;
+    data.productPrice = product.price;
     console.log(data);
     // e.preventDefault();
 
