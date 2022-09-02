@@ -6,7 +6,10 @@ import OrderCard from "../Shared/OrderCard/OrderCard";
 
 const MyOrder = () => {
   const [myOrders, setMyOrders] = useState([]);
-  // console.log(myOrders);
+  console.log(myOrders);
+  console.log(typeof(myOrders.productPrice));
+
+  console.log("Your number is integer " + Number.isInteger(myOrders.productPrice));
   const { user } = useAuth();
   console.log(user.email);
   useEffect(() => {

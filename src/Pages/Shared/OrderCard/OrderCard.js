@@ -6,7 +6,7 @@ import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 
 const OrderCard = ({ order, cancelOrder }) => {
-  const { productName,name, img, cell_phone, address, date, status } = order;
+  const { productName,name, img, cell_phone, productPrice, date, status } = order;
   const { admin} = useAuth();
 
   return (
@@ -21,7 +21,7 @@ const OrderCard = ({ order, cancelOrder }) => {
               <p className="fw-bold fs-5">{productName}</p>
               <p>{name}</p>
               <p>Phone: {cell_phone}</p>
-              <p>Location: {address}</p>
+              <p>Price: {productPrice}</p>
               <p>Order Date: {date}</p>
               <div className="d-flex justify-content-between">
                 <p>

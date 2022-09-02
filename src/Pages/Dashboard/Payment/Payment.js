@@ -11,7 +11,9 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  // console.log(product);
+  console.log(
+    "Your number is integer " + Number.isInteger(product.productPrice)
+  );
 
   useEffect(() => {
     fetch(`http://localhost:5000/myOrders/${id}`)
@@ -23,9 +25,11 @@ const Payment = () => {
     <div>
       <h2>Please pay for: {product.productName} </h2>
       <h3> pay : ${product.productPrice} </h3>
-      <Elements stripe={stripePromise}>
-        < CheckoutForm />
-      </Elements>
+      {product?.productPrice && (
+        <Elements stripe={stripePromise}>
+          <CheckoutForm product={product} />
+        </Elements>
+      )}
     </div>
   );
 };
