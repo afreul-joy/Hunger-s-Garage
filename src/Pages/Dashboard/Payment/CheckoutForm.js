@@ -7,7 +7,7 @@ import { CircularProgress } from "@mui/material";
 
 const CheckoutForm = ({ product }) => {
   console.log(product.name);
-  const { productPrice, name } = product;
+  const { productPrice, name,_id} = product;
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
@@ -72,7 +72,24 @@ const CheckoutForm = ({ product }) => {
       setError("");
       console.log(paymentIntent);
       setSuccess("Your Payment processed successfully.");
-      setProcessing(false);
+      setProcessing(false);   
+    // save to database
+      const payment = {
+        amount: paymentIntent.amount,
+        created: paymentIntent.created,
+        last4: paymentMethod.card.last4,
+        transaction: paymentIntent.client_secret.slice('_secret')[0]
+    }
+    const url = `http://localhost:5000/myOrders/${_id}`;
+    fetch(url, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(payment)
+    })
+        .then(res => res.json())
+        .then(data => console.log(data));
     }
   };
   return (

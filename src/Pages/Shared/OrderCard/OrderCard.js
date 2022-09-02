@@ -39,14 +39,14 @@ const OrderCard = ({ order, cancelOrder }) => {
                     >
                       <i className="fas fa-window-close"></i> Cancel
                     </button>
-                    {order.payment ? (
+                    {order.payment ? 
                   "paid"
-                ) : (
+                 : 
                   <Link to={`/dashboard/pay/${order._id}`}>
                     {" "}
                     <button> Pay</button>{" "}
                   </Link>
-                )}
+                }
                 </>}
               </div>
             </div>

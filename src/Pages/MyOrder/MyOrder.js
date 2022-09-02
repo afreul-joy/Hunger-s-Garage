@@ -7,11 +7,12 @@ import OrderCard from "../Shared/OrderCard/OrderCard";
 const MyOrder = () => {
   const [myOrders, setMyOrders] = useState([]);
   console.log(myOrders);
-  console.log(typeof(myOrders.productPrice));
+  // console.log(typeof(myOrders.productPrice));
 
-  console.log("Your number is integer " + Number.isInteger(myOrders.productPrice));
+  // console.log("Your number is integer " + Number.isInteger(myOrders.productPrice)); 
+  
   const { user } = useAuth();
-  console.log(user.email);
+  
   useEffect(() => {
     const url = `https://hungers-garage.herokuapp.com/myOrders?email=${user?.email}`;
     fetch(url)
