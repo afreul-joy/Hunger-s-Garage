@@ -16,7 +16,7 @@ const Payment = () => {
   );
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrders/${id}`)
+    fetch(`https://hungers-garage.herokuapp.com/myOrders/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [id]);

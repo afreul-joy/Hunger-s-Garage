@@ -18,7 +18,7 @@ const CheckoutForm = ({ product }) => {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://hungers-garage.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -80,7 +80,7 @@ const CheckoutForm = ({ product }) => {
         last4: paymentMethod.card.last4,
         transaction: paymentIntent.client_secret.slice('_secret')[0]
     }
-    const url = `http://localhost:5000/myOrders/${_id}`;
+    const url = `https://hungers-garage.herokuapp.com/myOrders/${_id}`;
     fetch(url, {
         method: 'PUT',
         headers: {
@@ -115,7 +115,7 @@ const CheckoutForm = ({ product }) => {
           <CircularProgress></CircularProgress>
         ) : (
           <button type="submit" disabled={!stripe || success}>
-            Pay ${productPrice}
+            Pay ${productPrice} hi
           </button>
         )}
       </form>
