@@ -16,7 +16,7 @@ const Payment = () => {
   );
 
   useEffect(() => {
-    fetch(`https://hungers-garage.herokuapp.com/myOrders/${id}`)
+    fetch(`https://hunger-s-garage-server.vercel.app/myOrders/${id}`)
       .then((res) => res.json())
       .then((data) => setProduct(data));
   }, [id]);

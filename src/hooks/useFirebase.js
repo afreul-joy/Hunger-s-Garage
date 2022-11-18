@@ -97,7 +97,7 @@ const useFirebase = () => {
   //---------- Save User to Database-----------------
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("https://hungers-garage.herokuapp.com/users", {
+    fetch("https://hunger-s-garage-server.vercel.app/users", {
       method: method,
       headers: { "content-type": "application/json" },
       body: JSON.stringify(user),
@@ -118,7 +118,7 @@ const useFirebase = () => {
   }, [auth]);
   //---------- Admin ---------------------
   useEffect(() => {
-    fetch(`https://hungers-garage.herokuapp.com/users/${user.email}`)
+    fetch(`https://hunger-s-garage-server.vercel.app/users/${user.email}`)
     .then(res=>res.json())
     .then(data=>setAdmin(data.admin))
   }, [user.email]);

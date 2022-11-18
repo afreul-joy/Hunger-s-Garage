@@ -14,7 +14,7 @@ const MakeAnAdmin = () => {
   const handleAdminSubmit = (e) => {
     e.preventDefault();
     const user = { email };
-    fetch("https://hungers-garage.herokuapp.com/users/admin", {
+    fetch("https://hunger-s-garage-server.vercel.app/users/admin", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),

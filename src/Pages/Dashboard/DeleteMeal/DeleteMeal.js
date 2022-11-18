@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const DeleteMeal = () => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
-    const url = `https://hungers-garage.herokuapp.com/meals`;
+    const url = `https://hunger-s-garage-server.vercel.app/meals`;
     console.log(url);
     fetch(url)
       .then((res) => res.json())
@@ -27,7 +27,7 @@ const DeleteMeal = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
         {
-          const url = `https://hungers-garage.herokuapp.com/meals/${id}`;
+          const url = `https://hunger-s-garage-server.vercel.app/meals/${id}`;
           fetch(url, {
             method: "DELETE",
           })

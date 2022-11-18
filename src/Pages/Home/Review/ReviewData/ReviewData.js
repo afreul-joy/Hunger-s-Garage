@@ -14,7 +14,7 @@ const ReviewData = () => {
   ];
 
   useEffect(() => {
-    fetch("https://hungers-garage.herokuapp.com/review")
+    fetch("https://hunger-s-garage-server.vercel.app/review")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

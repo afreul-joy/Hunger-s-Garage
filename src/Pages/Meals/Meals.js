@@ -10,7 +10,7 @@ const Meals = () => {
   let [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const url = `https://hungers-garage.herokuapp.com/meals`;
+    const url = `https://hunger-s-garage-server.vercel.app/meals`;
     setLoading(true);
 
     fetch(url)

@@ -21,7 +21,7 @@ const ReviewDashboard = () => {
     e.preventDefault();
 
     // Send data server POST API
-    fetch("https://hungers-garage.herokuapp.com/review", {
+    fetch("https://hunger-s-garage-server.vercel.app/review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

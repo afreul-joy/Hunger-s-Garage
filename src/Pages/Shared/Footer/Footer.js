@@ -8,7 +8,7 @@ const Footer = () => {
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
-        fetch('https://hungers-garage.herokuapp.com/meals')
+        fetch('https://hunger-s-garage-server.vercel.app/meals')
             .then(res => res.json())
         .then(data => setProduct(data))
     }, [])

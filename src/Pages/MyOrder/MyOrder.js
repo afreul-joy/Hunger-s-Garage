@@ -14,7 +14,7 @@ const MyOrder = () => {
   const { user } = useAuth();
   
   useEffect(() => {
-    const url = `https://hungers-garage.herokuapp.com/myOrders?email=${user?.email}`;
+    const url = `https://hunger-s-garage-server.vercel.app/myOrders?email=${user?.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
@@ -33,7 +33,7 @@ const MyOrder = () => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
         {
-          const url = `https://hungers-garage.herokuapp.com/myOrders/${id}`;
+          const url = `https://hunger-s-garage-server.vercel.app/myOrders/${id}`;
           fetch(url, {
             method: "DELETE",
           })

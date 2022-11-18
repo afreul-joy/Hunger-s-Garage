@@ -12,7 +12,7 @@ const Edit = () => {
     const [userData,setuserData] = useState({})
 
     useEffect(() => {
-        const url = `https://hungers-garage.herokuapp.com/myOrders/${id}`
+        const url = `https://hunger-s-garage-server.vercel.app/myOrders/${id}`
         fetch(url)
          .then(res=>res.json())
           .then(data => setuserData(data));
@@ -48,7 +48,7 @@ const Edit = () => {
 
     const handleForm=e=>{
      //   Send data server PUT API
-        const url = `https://hungers-garage.herokuapp.com/myOrders/${id}`
+        const url = `https://hunger-s-garage-server.vercel.app/myOrders/${id}`
         fetch(url,{
             method: 'PUT' ,
             headers:{'Content-Type': 'application/json'},

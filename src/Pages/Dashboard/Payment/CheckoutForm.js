@@ -18,7 +18,7 @@ const CheckoutForm = ({ product }) => {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    fetch("https://hungers-garage.herokuapp.com/create-payment-intent", {
+    fetch("https://hunger-s-garage-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -80,7 +80,7 @@ const CheckoutForm = ({ product }) => {
         last4: paymentMethod.card.last4,
         transaction: paymentIntent.client_secret.slice('_secret')[0]
     }
-    const url = `https://hungers-garage.herokuapp.com/myOrders/${_id}`;
+    const url = `https://hunger-s-garage-server.vercel.app/myOrders/${_id}`;
     fetch(url, {
         method: 'PUT',
         headers: {

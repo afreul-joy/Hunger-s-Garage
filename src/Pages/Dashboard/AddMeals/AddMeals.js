@@ -16,7 +16,7 @@ const BuyNow = () => {
   const onSubmit = (data,e) => {
     console.log(data);
     // Send data server POST API
-    fetch("https://hungers-garage.herokuapp.com/addMeals", {
+    fetch("https://hunger-s-garage-server.vercel.app/addMeals", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

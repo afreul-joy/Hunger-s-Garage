@@ -21,7 +21,7 @@ const BuyNow = () => {
   
   //showing single details
   useEffect(() => {
-    const url = `https://hungers-garage.herokuapp.com/meals/${id}`;
+    const url = `https://hunger-s-garage-server.vercel.app/meals/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
@@ -39,7 +39,7 @@ const BuyNow = () => {
     // e.preventDefault();
 
     // Send data server POST API
-    fetch("https://hungers-garage.herokuapp.com/purchase", {
+    fetch("https://hunger-s-garage-server.vercel.app/purchase", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
